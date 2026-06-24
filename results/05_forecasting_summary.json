@@ -1,0 +1,181 @@
+{
+  "eval_seasons": 19,
+  "decision_weeks": [
+    8,
+    12,
+    16
+  ],
+  "metrics": [
+    {
+      "model": "ARIMA",
+      "W": 8,
+      "n_forecast": 19,
+      "n_detection": 0,
+      "pw_MAE_fc": 20.89,
+      "pw_within1_fc": 10.5,
+      "pw_within1_fc_exfrag": 9.1,
+      "ili_MAE_fc": 1.56,
+      "ili_RMSE_fc": 1.873,
+      "pw_MAE_all19": 20.89,
+      "ili_MAE_all19": 1.56
+    },
+    {
+      "model": "ARIMA",
+      "W": 12,
+      "n_forecast": 17,
+      "n_detection": 2,
+      "pw_MAE_fc": 9.71,
+      "pw_within1_fc": 17.6,
+      "pw_within1_fc_exfrag": 20.0,
+      "ili_MAE_fc": 2.178,
+      "ili_RMSE_fc": 2.49,
+      "pw_MAE_all19": 8.95,
+      "ili_MAE_all19": 2.023
+    },
+    {
+      "model": "ARIMA",
+      "W": 16,
+      "n_forecast": 12,
+      "n_detection": 7,
+      "pw_MAE_fc": 4.33,
+      "pw_within1_fc": 16.7,
+      "pw_within1_fc_exfrag": 28.6,
+      "ili_MAE_fc": 1.275,
+      "ili_RMSE_fc": 1.461,
+      "pw_MAE_all19": 6.21,
+      "ili_MAE_all19": 1.689
+    },
+    {
+      "model": "Prophet",
+      "W": 8,
+      "n_forecast": 19,
+      "n_detection": 0,
+      "pw_MAE_fc": 34.79,
+      "pw_within1_fc": 0.0,
+      "pw_within1_fc_exfrag": 0.0,
+      "ili_MAE_fc": 1.837,
+      "ili_RMSE_fc": 2.141,
+      "pw_MAE_all19": 34.79,
+      "ili_MAE_all19": 1.837
+    },
+    {
+      "model": "Prophet",
+      "W": 12,
+      "n_forecast": 17,
+      "n_detection": 2,
+      "pw_MAE_fc": 34.0,
+      "pw_within1_fc": 0.0,
+      "pw_within1_fc_exfrag": 0.0,
+      "ili_MAE_fc": 2.145,
+      "ili_RMSE_fc": 2.468,
+      "pw_MAE_all19": 34.79,
+      "ili_MAE_all19": 1.942
+    },
+    {
+      "model": "Prophet",
+      "W": 16,
+      "n_forecast": 12,
+      "n_detection": 7,
+      "pw_MAE_fc": 32.08,
+      "pw_within1_fc": 0.0,
+      "pw_within1_fc_exfrag": 0.0,
+      "ili_MAE_fc": 1.906,
+      "ili_RMSE_fc": 2.226,
+      "pw_MAE_all19": 34.79,
+      "ili_MAE_all19": 1.869
+    }
+  ],
+  "skill_vs_baselineC": [
+    {
+      "model": "ARIMA",
+      "W": 8,
+      "n": 19,
+      "pw_model": 20.89,
+      "pw_baselineC": 9.21,
+      "pw_skill": -11.68,
+      "ili_model": 1.56,
+      "ili_baselineC": 2.667,
+      "ili_skill": 1.107
+    },
+    {
+      "model": "ARIMA",
+      "W": 12,
+      "n": 17,
+      "pw_model": 9.71,
+      "pw_baselineC": 6.0,
+      "pw_skill": -3.71,
+      "ili_model": 2.178,
+      "ili_baselineC": 1.371,
+      "ili_skill": -0.807
+    },
+    {
+      "model": "ARIMA",
+      "W": 16,
+      "n": 12,
+      "pw_model": 4.33,
+      "pw_baselineC": 5.67,
+      "pw_skill": 1.34,
+      "ili_model": 1.275,
+      "ili_baselineC": 1.046,
+      "ili_skill": -0.229
+    },
+    {
+      "model": "Prophet",
+      "W": 8,
+      "n": 19,
+      "pw_model": 34.79,
+      "pw_baselineC": 9.21,
+      "pw_skill": -25.58,
+      "ili_model": 1.837,
+      "ili_baselineC": 2.667,
+      "ili_skill": 0.83
+    },
+    {
+      "model": "Prophet",
+      "W": 12,
+      "n": 17,
+      "pw_model": 34.0,
+      "pw_baselineC": 6.0,
+      "pw_skill": -28.0,
+      "ili_model": 2.145,
+      "ili_baselineC": 1.371,
+      "ili_skill": -0.774
+    },
+    {
+      "model": "Prophet",
+      "W": 16,
+      "n": 12,
+      "pw_model": 32.08,
+      "pw_baselineC": 5.67,
+      "pw_skill": -26.41,
+      "ili_model": 1.906,
+      "ili_baselineC": 1.046,
+      "ili_skill": -0.86
+    }
+  ],
+  "prophet_calibration": [
+    {
+      "W": 8,
+      "n": 19,
+      "nominal": 80.0,
+      "empirical_coverage": 10.5,
+      "verdict": "over-confident"
+    },
+    {
+      "W": 12,
+      "n": 17,
+      "nominal": 80.0,
+      "empirical_coverage": 11.8,
+      "verdict": "over-confident"
+    },
+    {
+      "W": 16,
+      "n": 12,
+      "nominal": 80.0,
+      "empirical_coverage": 8.3,
+      "verdict": "over-confident"
+    }
+  ],
+  "leak_flagged": [],
+  "skips": []
+}
