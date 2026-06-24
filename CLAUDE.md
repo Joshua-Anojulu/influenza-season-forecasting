@@ -28,7 +28,13 @@ This is an automated environment, so the discipline falls on us to enforce. Defa
 1. **Scope decisions belong to the advisor (Dr. Subhro Mitra), not to us.** Everything in "Open decisions" below is PENDING his sign-off. Do not build on these as if confirmed. Mark them as assumptions wherever they appear in code or docs.
 2. **Stop and show me before committing target definitions or model code.** These harden methodological choices into git history. I review before they land.
 3. **Baselines before models.** No fancier model ships until it has been measured against the naive baseline.
-4. **Never `git push` without my explicit instruction.** Routine local commits are fine; pushing is my call.
+4. **Push to the remote after each notebook commit, but only on my explicit
+   go-ahead.** Routine local commits happen during a build. Once a notebook is
+   committed AND I have approved it, remind me to push and push on my confirmation.
+   Never push automatically, never push mid-build, and never push without my
+   explicit instruction. Before every push, confirm no file under data/raw/ is
+   tracked (git ls-files data/ returns nothing); if any data file is tracked, STOP
+   and flag it.
 5. **Leakage firewall.** Every feature is checked against the prediction-time cutoff. Flag any feature whose window can reach past the decision week. Cumulative-season features are the classic trap.
 
 ## Project state (accurate as of handoff)
@@ -57,7 +63,7 @@ All national scope. Raw files live in `data/raw/` (gitignored).
 
 - **ILINet.csv** — core ILI% target. `skiprows=1` (line 1 is a title sentence). Missing sentinel `X`. Target column `% WEIGHTED ILI` (not unweighted), clean across 1,148 weeks, range 0.35 to 7.84. Covers 2003 wk40 to 2025 wk39, about 22 complete seasons.
 - **NREVSS strain** (core feature, 2003+): three files, `skiprows=1`. The 2015-16 reporting break: the Combined file carries subtype pre-2015-16; the Public Health Labs file carries subtype 2015-16 onward; the Clinical Labs file is positivity only (NOT subtype). To build a continuous `dominant_strain` series, stitch Combined + Public Health Labs across the break.
-- **FluSurv-NET hospitalizations** (enrichment, 2009+ under Option B): `skiprows=2`, missing sentinel `null`, drop the disclaimer footer by filtering `CATCHMENT == "Entire Network"`, then all four category columns to "Overall". 510 weekly rows, 2009-10 to 2024-25. 31 weekly rates missing (provisional recent weeks).
+- **FluSurv-NET hospitalizations** (enrichment, 2009+ under Option B): `skiprows=2`, missing sentinel `null`, drop the disclaimer footer by filtering `CATCHMENT == "Entire Network"`, then all four category columns to "Overall". 510 weekly rows, 2009-10 to 2024-25. 31 weekly rates missing, and all 31 fall in the 2020-21 season (the entire season is blank; flu was near-absent under COVID NPIs); no other season has a missing weekly rate.
 - **FluVaxView vaccine coverage** (enrichment, 2009+ under Option B): national all-ages is `Geography == "United States"` and `Dimension Type == "Age"` and Dimension in {`>=6 Months`, `Greater than 6 Months flu`}. The label changed in 2023-24, so accept both or that season silently drops. Coverage is monotonic cumulative within a season, so the season-end value is the max over months. Do NOT take the highest month number (Jan-May sort below December). 16 seasons, 41.7% to 52.1%.
 - **WHO FluNet — EXCLUDED.** Only spans 2022-2026, is global, and is redundant with NREVSS. Not used. This is a recorded decision, not an omission.
 
