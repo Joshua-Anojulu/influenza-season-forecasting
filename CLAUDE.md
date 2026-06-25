@@ -37,15 +37,18 @@ This is an automated environment, so the discipline falls on us to enforce. Defa
    and flag it.
 5. **Leakage firewall.** Every feature is checked against the prediction-time cutoff. Flag any feature whose window can reach past the decision week. Cumulative-season features are the classic trap.
 
-## Project state (accurate as of handoff)
+## Project state (updated 2026-06-25)
 
-**Status: data acquired and inventoried. No cleaning, no targets, no model yet.**
+**Status: pipeline complete through 05, all committed and pushed to the private remote. Results are preliminary and descriptive; scope decisions below still await Dr. Mitra.**
 
-Done and verified:
-- `README.md` written, planned-tense, no results claimed.
-- `notebooks/01_data_inventory.ipynb` written and executed clean against all source files. Documents every loading quirk, Option B, and the FluNet exclusion.
+Done and verified (each notebook executed clean; committed without outputs; reconstructs 02's logic from raw):
+- `01_data_inventory.ipynb` — load/audit all sources; documents quirks, Option B, FluNet exclusion.
+- `02_cleaning.ipynb` — MMWR season alignment; targets `peak_week` / `peak_ili_pct` on a 3-week centered smoother (removes the wk52 holiday artifact); flags `holiday_shift` (5 seasons), `peak_week_smoothing_sensitive`, `fragile_peak_week` (9 seasons); NREVSS `dominant_strain` stitch (validated at the 2015-16 seam). 22 complete seasons.
+- `03_eda.ipynb` — trajectories, distributions, strain timeline, missingness map (surfaced that FluSurv's 31 missing weekly rates are all 2020-21, correcting an earlier note). Figures in `figures/`.
+- `04_baselines.ipynb` — LOSO floors on 19 seasons (exclude 2008-09, 2009-10, 2020-21). Finding: peak-WEEK timing has no strong naive floor (~3.3-3.8 wk MAE, <=37% within +/-1); severity is more tractable (climatology MAE 1.34, within-season running max 0.84 by W=16). Lead-time-matched bars for 05. Results in `results/`.
+- `05_forecasting.ipynb` — ARIMA + Prophet within-season under a strict leakage firewall (audited clean across 114 fits: last_obs <= W, peak read only from the forecast region, no leak). Honest negative point-forecast result: models do not beat the floor at realistic W. Primary affirmative finding: Prophet's 80% intervals are cap-pinned near the historical-max ceiling while most peaks fall well below, so empirical LOSO coverage is ~6-12% (1-2 of ~17 seasons) vs nominal 80% (Prophet fit seeded for reproducibility; W=12 tips between 5.9% and 11.8% under optimizer convergence) - severely overconfident. RF severity classifier: planned, not implemented.
 
-Next build: `notebooks/02_cleaning.ipynb` (not started).
+Open follow-ups (not yet done): empty `src/` with 02's logic duplicated across 03/04/05 (deferred refactor); RF severity classifier (a scope decision for Dr. Mitra, not to be resolved by building it).
 
 ## The task
 
@@ -69,11 +72,11 @@ All national scope. Raw files live in `data/raw/` (gitignored).
 
 ## Methodology plan (pipeline)
 
-1. `01_data_inventory.ipynb` — done. Load, audit, document quirks and decisions.
-2. `02_cleaning.ipynb` — next. Align ILINet to MMWR season weeks (40 to 39), build `peak_ili_pct` and `peak_week` per season, verify each peak sits in the season interior (not pinned to a boundary), perform the NREVSS strain stitch.
-3. `03_eda.ipynb` — season trajectories, peak-week and peak-ILI distributions, missingness map, pandemic seasons marked.
-4. `04_baselines.ipynb` — historical-median peak week, prior-season / historical-mean peak ILI. Everything later must beat these.
-5. `05_forecasting.ipynb` — ARIMA, Prophet, optional RF severity classifier, all through one leave-one-season-out harness. Metrics: peak-week error (weeks), peak-ILI MAE and RMSE, 80% interval coverage (calibration). Report calibration alongside point error.
+1. `01_data_inventory.ipynb` — DONE. Load, audit, document quirks and decisions.
+2. `02_cleaning.ipynb` — DONE. MMWR season alignment (40 to 39); `peak_ili_pct` / `peak_week` on the 3-week centered smoother; boundary + holiday + fragile flags; NREVSS strain stitch.
+3. `03_eda.ipynb` — DONE. Season trajectories, peak distributions, strain timeline, missingness map; pandemic / pandemic-adjacent and fragile seasons marked.
+4. `04_baselines.ipynb` — DONE. Climatology, persistence, within-season running-max (W in {8,12,16}), exploratory strain-climatology. Lead-time-matched floors; everything later must beat the floor at its own W.
+5. `05_forecasting.ipynb` — DONE for ARIMA + Prophet under the LOSO firewall (metrics: peak-week error, peak-ILI MAE/RMSE, 80% interval coverage). RF severity classifier still PLANNED, not implemented. Calibration is reported as a primary result.
 
 ## Repo structure
 
@@ -81,15 +84,18 @@ All national scope. Raw files live in `data/raw/` (gitignored).
 influenza-season-forecasting/
 ├── CLAUDE.md
 ├── README.md
-├── .gitignore          # data/, *.csv, .ipynb_checkpoints/, __pycache__/, .env, .DS_Store
+├── requirements.txt
+├── .gitignore          # data/, *.csv, .ipynb_checkpoints/, __pycache__/, .env, .DS_Store, AGENTS.md
 ├── notebooks/
 │   ├── 01_data_inventory.ipynb   # done, verified
-│   ├── 02_cleaning.ipynb         # next
-│   ├── 03_eda.ipynb
-│   ├── 04_baselines.ipynb
-│   └── 05_forecasting.ipynb
+│   ├── 02_cleaning.ipynb         # done
+│   ├── 03_eda.ipynb              # done
+│   ├── 04_baselines.ipynb        # done
+│   └── 05_forecasting.ipynb      # done (ARIMA + Prophet; RF not implemented)
 ├── data/raw/           # gitignored; place the CDC source files here
-└── src/                # shared utilities
+├── figures/            # generated EDA + calibration figures (tracked)
+├── results/            # baseline + forecasting summaries, md + json (tracked)
+└── src/                # shared utilities (currently empty)
 ```
 
 ## Open decisions awaiting Dr. Mitra (do NOT pre-resolve)
