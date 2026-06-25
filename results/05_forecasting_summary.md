@@ -27,5 +27,5 @@
 | W | n | nominal | empirical_coverage | verdict |
 | --- | --- | --- | --- | --- |
 | 8 | 19 | 80.0 | 10.5 | over-confident |
-| 12 | 17 | 80.0 | 11.8 | over-confident |
+| 12 | 17 | 80.0 | 5.9 | over-confident |
 | 16 | 12 | 80.0 | 8.3 | over-confident |
