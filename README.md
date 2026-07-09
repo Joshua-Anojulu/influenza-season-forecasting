@@ -111,6 +111,7 @@ model, which is future work.
 .
 ├── CLAUDE.md             # working agreement + project memory (read first)
 ├── README.md
+├── START_HERE.md         # student-facing getting-started guide
 ├── requirements.txt
 ├── .gitignore
 ├── notebooks/
@@ -123,6 +124,8 @@ model, which is future work.
 ├── data/raw/             # gitignored; CDC source CSVs
 ├── figures/              # generated EDA + calibration figures
 ├── results/              # baseline + forecasting summaries (markdown + JSON)
+├── slides/               # findings deck (HTML)
+├── docs/                 # design spec + implementation plan
 └── src/                  # shared utilities (currently empty)
 ```
 
@@ -130,17 +133,18 @@ Notebooks are committed without execution outputs; each reconstructs the cleaned
 committed logic and re-runs deterministically (Prophet's interval sampling is the one stochastic
 element). `AGENTS.md`, if present, is an auto-generated duplicate of `CLAUDE.md` and is gitignored.
 
-## Scope decisions pending review
+## Scope decisions
 
-The following are working assumptions awaiting the advisor's sign-off and are marked as such wherever
-they appear in code and docs:
+Confirmed by the advisor (2026-07-08): the characterization-first framing and the within-season
+formulation; national-only scope for now (one or two HHS regions later as a robustness check); and the
+template's target metrics (e.g. peak week within +/-1 on >=70% of seasons) as goals, not deliverables
+(the 04/05 results indicate the +/-1-on-70% timing target is likely unreachable honestly at these lead
+times).
+
+Still open:
 
 - Feature strategy (Option B: core features 2003+, enrichment 2009+) versus an all-feature 2009+ design.
-- The within-season-forecasting framing and the specific decision weeks W.
-- Whether the template's target metrics (e.g. peak week within +/-1 on >=70% of seasons) are goals
-  rather than deliverables. The 04/05 results suggest the +/-1-on-70% timing target is likely
-  unreachable honestly at these lead times.
-- National-only scope versus HHS-regional.
+- Which decision week(s) W to headline (currently 8, 12, 16 throughout).
 
 ## Notes and limitations
 
@@ -154,7 +158,7 @@ rather than worked around. Honest negative results are reported as such.
 ```
 pip install -r requirements.txt
 # place the CDC source CSVs in data/raw/ (see notebook 01 for filenames and loading quirks)
-# run notebooks 01 -> 05 in order
+# run notebooks 01 -> 06 in order
 ```
 
 ## Background

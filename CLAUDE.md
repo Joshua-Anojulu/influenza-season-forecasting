@@ -78,6 +78,7 @@ All national scope. Raw files live in `data/raw/` (gitignored).
 3. `03_eda.ipynb` — DONE. Season trajectories, peak distributions, strain timeline, missingness map; pandemic / pandemic-adjacent and fragile seasons marked.
 4. `04_baselines.ipynb` — DONE. Climatology, persistence, within-season running-max (W in {8,12,16}), exploratory strain-climatology. Lead-time-matched floors; everything later must beat the floor at its own W.
 5. `05_forecasting.ipynb` — DONE for ARIMA + Prophet under the LOSO firewall (metrics: peak-week error, peak-ILI MAE/RMSE, 80% interval coverage). RF severity classifier still PLANNED, not implemented. Calibration is reported as a primary result.
+6. `06_regression_and_curve.ipynb` — DONE. Univariate severity regression (real-time), explanatory ridge (retrospective; +dominant strain +vaccine coverage), and a Gaussian curve fit, all through-W under the same LOSO firewall. The univariate regression is the first model to beat a floor on severity; strain and vaccine coverage add nothing; the Gaussian does not beat the floor on either target.
 
 ## Repo structure
 
@@ -85,6 +86,7 @@ All national scope. Raw files live in `data/raw/` (gitignored).
 influenza-season-forecasting/
 ├── CLAUDE.md
 ├── README.md
+├── START_HERE.md       # student-facing getting-started guide
 ├── requirements.txt
 ├── .gitignore          # data/, *.csv, .ipynb_checkpoints/, __pycache__/, .env, .DS_Store, AGENTS.md
 ├── notebooks/
@@ -92,10 +94,13 @@ influenza-season-forecasting/
 │   ├── 02_cleaning.ipynb         # done
 │   ├── 03_eda.ipynb              # done
 │   ├── 04_baselines.ipynb        # done
-│   └── 05_forecasting.ipynb      # done (ARIMA + Prophet; RF not implemented)
+│   ├── 05_forecasting.ipynb      # done (ARIMA + Prophet; RF not implemented)
+│   └── 06_regression_and_curve.ipynb  # done (univariate regression + ridge + Gaussian)
 ├── data/raw/           # gitignored; place the CDC source files here
 ├── figures/            # generated EDA + calibration figures (tracked)
 ├── results/            # baseline + forecasting summaries, md + json (tracked)
+├── slides/             # findings deck (HTML)
+├── docs/               # design spec + implementation plan
 └── src/                # shared utilities (currently empty)
 ```
 
