@@ -2,10 +2,10 @@
 
 Forecasting the timing and severity of US influenza season peaks from public CDC surveillance data.
 
-> **Status:** Analysis pipeline complete (notebooks 01-05). Results below are **preliminary and
-> descriptive**: the sample is small (19 modeled seasons) and the core scope decisions are still
-> pending the advisor's sign-off (see *Scope decisions pending review*). Nothing here is a final
-> claim.
+> **Status:** Analysis pipeline complete (notebooks 01-06). Results below are **preliminary and
+> descriptive**: the sample is small (19 modeled seasons). The advisor confirmed the
+> characterization-first framing, national-only scope, and the added regression/curve models on
+> 2026-07-08; a couple of secondary decisions remain open. Nothing here is a final claim.
 
 ## Overview
 
@@ -52,8 +52,14 @@ is not used for subtype.
   baseline at the same W, never to a cross-sectional floor).
 - **Forecasting (05):** ARIMA and Prophet, fit within-season on data through W only (strict leakage
   firewall, audited per fit), forecasting the remaining weeks. Prophet's 80% prediction interval is
-  used for a calibration analysis. A Random Forest severity classifier is **planned but not yet
-  implemented**.
+  used for a calibration analysis.
+- **Regression and curve models (06):** three models under the identical firewall, all features
+  computed strictly through W. (1) A univariate real-time severity forecast from cumulative-ILI-
+  through-W. (2) A retrospective explanatory ridge (cumulative ILI + dominant strain + vaccine
+  coverage) testing whether strain/vaccine carry severity signal; labeled explanatory because strain
+  is reporting-lagged and vaccine coverage is a revised survey estimate. (3) A symmetric Gaussian
+  curve fit for both peak height and peak week. A Random Forest severity classifier remains **not
+  implemented** and is superseded by these models.
 - **Validation:** LOSO over the same season set throughout. Of 22 complete seasons (2003-04 to
   2024-25), **19 are modeled** after holding out 2009-10 and 2020-21 (pandemic) and 2008-09
   (pandemic-adjacent, the 2009 H1N1 emergence) as labeled special cases.
@@ -84,10 +90,20 @@ forecast region, and no suspected leak). Full tables: `results/`.
   forecasts. (Per-W coverage is granular at this sample size; W=12 tips between 5.9% and 11.8% under
   Stan optimizer convergence, so the fit is seeded and the result is quoted as a range.) This stands
   independently of point-forecast skill.
+- **A simple regression is the first model to honestly beat a floor (06).** Predicting peak severity
+  from cumulative-ILI-through-W gives MAE 1.26 / 1.12 / 0.92 at W=8 / 12 / 16, beating climatology
+  (1.34) at every lead time and beating or tying the within-season running-max floor at W=8 and W=12.
+  Adding dominant strain and vaccine coverage (a retrospective explanatory ridge) does **not** lower
+  the error below this ILI-only model, so those covariates carry no extra severity signal at this
+  sample size. A symmetric Gaussian curve fit does not beat the floor on either target: fit to a
+  usually rising-limb segment its amplitude pins to the historical-max ceiling, the same overshoot
+  pathology as ARIMA/Prophet.
 
-These are honest negative point-forecast results plus a calibration contribution, not a claim that
-peak forecasting is solved or impossible. Capturing the epidemic turnover would require model
-structure (a curve or mechanistic model) that ARIMA/Prophet lack; that is future work.
+These are honest negative point-forecast results plus two affirmative contributions (the calibration
+finding and the univariate severity forecast), not a claim that peak forecasting is solved or
+impossible. A phenomenological curve model (06) was tried and did not rescue the peak, because at
+realistic lead times the peak has not yet happened; capturing the turnover would require a mechanistic
+model, which is future work.
 
 ## Repository structure
 
@@ -102,7 +118,8 @@ structure (a curve or mechanistic model) that ARIMA/Prophet lack; that is future
 │   ├── 02_cleaning.ipynb         # season alignment, smoothed targets, strain stitch
 │   ├── 03_eda.ipynb              # trajectories, distributions, missingness map
 │   ├── 04_baselines.ipynb        # naive floors, lead-time-matched
-│   └── 05_forecasting.ipynb      # ARIMA / Prophet under the leakage firewall
+│   ├── 05_forecasting.ipynb      # ARIMA / Prophet under the leakage firewall
+│   └── 06_regression_and_curve.ipynb  # univariate + explanatory ridge + Gaussian curve
 ├── data/raw/             # gitignored; CDC source CSVs
 ├── figures/              # generated EDA + calibration figures
 ├── results/              # baseline + forecasting summaries (markdown + JSON)

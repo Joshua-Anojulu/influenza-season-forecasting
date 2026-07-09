@@ -1,0 +1,152 @@
+{
+  "eval_seasons": 19,
+  "decision_weeks": [
+    8,
+    12,
+    16
+  ],
+  "univariate": [
+    {
+      "W": 8,
+      "uni_MAE": 1.256,
+      "uni_RMSE": 1.614,
+      "baselineC_MAE": 2.667,
+      "climatology_MAE": 1.341
+    },
+    {
+      "W": 12,
+      "uni_MAE": 1.124,
+      "uni_RMSE": 1.421,
+      "baselineC_MAE": 1.241,
+      "climatology_MAE": 1.341
+    },
+    {
+      "W": 16,
+      "uni_MAE": 0.917,
+      "uni_RMSE": 1.062,
+      "baselineC_MAE": 0.842,
+      "climatology_MAE": 1.341
+    }
+  ],
+  "ridge": [
+    {
+      "W": 8,
+      "n19": 19,
+      "ridge_ili_strain_MAE": 1.279,
+      "n14": 14,
+      "ridge_ili_strain_vax_MAE": 1.459,
+      "univariate_MAE": 1.256
+    },
+    {
+      "W": 12,
+      "n19": 19,
+      "ridge_ili_strain_MAE": 1.19,
+      "n14": 14,
+      "ridge_ili_strain_vax_MAE": 1.258,
+      "univariate_MAE": 1.124
+    },
+    {
+      "W": 16,
+      "n19": 19,
+      "ridge_ili_strain_MAE": 0.981,
+      "n14": 14,
+      "ridge_ili_strain_vax_MAE": 0.969,
+      "univariate_MAE": 0.917
+    }
+  ],
+  "gaussian": [
+    {
+      "W": 8,
+      "n_forecast": 19,
+      "n_pw_defined": 5,
+      "n_at_bound": 14,
+      "sev_MAE": 2.324,
+      "pw_MAE": 4.8,
+      "pw_within1": 20.0
+    },
+    {
+      "W": 12,
+      "n_forecast": 18,
+      "n_pw_defined": 1,
+      "n_at_bound": 17,
+      "sev_MAE": 2.586,
+      "pw_MAE": 7.0,
+      "pw_within1": 0.0
+    },
+    {
+      "W": 16,
+      "n_forecast": 5,
+      "n_pw_defined": 0,
+      "n_at_bound": 18,
+      "sev_MAE": 1.47,
+      "pw_MAE": NaN,
+      "pw_within1": NaN
+    }
+  ],
+  "severity_by_model": [
+    {
+      "W": 8,
+      "climatology": 1.341,
+      "baselineC": 2.667,
+      "univariate": 1.256,
+      "ridge_ili_strain": 1.279,
+      "ridge_plus_vax_n14": 1.459,
+      "gaussian_fcsubset": 2.324
+    },
+    {
+      "W": 12,
+      "climatology": 1.341,
+      "baselineC": 1.241,
+      "univariate": 1.124,
+      "ridge_ili_strain": 1.19,
+      "ridge_plus_vax_n14": 1.258,
+      "gaussian_fcsubset": 2.586
+    },
+    {
+      "W": 16,
+      "climatology": 1.341,
+      "baselineC": 0.842,
+      "univariate": 0.917,
+      "ridge_ili_strain": 0.981,
+      "ridge_plus_vax_n14": 0.969,
+      "gaussian_fcsubset": 1.47
+    }
+  ],
+  "severity_skill_vs_baselineC": [
+    {
+      "W": 8,
+      "baselineC": 2.667,
+      "univariate_skill": 1.411,
+      "ridge_ili_strain_skill": 1.388
+    },
+    {
+      "W": 12,
+      "baselineC": 1.241,
+      "univariate_skill": 0.117,
+      "ridge_ili_strain_skill": 0.051
+    },
+    {
+      "W": 16,
+      "baselineC": 0.842,
+      "univariate_skill": -0.075,
+      "ridge_ili_strain_skill": -0.139
+    }
+  ],
+  "vax_subset_seasons": [
+    "2010-11",
+    "2011-12",
+    "2012-13",
+    "2013-14",
+    "2014-15",
+    "2015-16",
+    "2016-17",
+    "2017-18",
+    "2018-19",
+    "2019-20",
+    "2021-22",
+    "2022-23",
+    "2023-24",
+    "2024-25"
+  ],
+  "gaussian_skips": []
+}

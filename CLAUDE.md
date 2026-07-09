@@ -37,9 +37,9 @@ This is an automated environment, so the discipline falls on us to enforce. Defa
    and flag it.
 5. **Leakage firewall.** Every feature is checked against the prediction-time cutoff. Flag any feature whose window can reach past the decision week. Cumulative-season features are the classic trap.
 
-## Project state (updated 2026-06-25)
+## Project state (updated 2026-07-08)
 
-**Status: pipeline complete through 05, all committed and pushed to the private remote. Results are preliminary and descriptive; scope decisions below still await Dr. Mitra.**
+**Status: pipeline extended through 06. Notebooks 01-05 were corrected (CWD-independent paths so `nbconvert` runs from repo root; ARIMA peak-week clip artifact now flagged `peak_ambiguous` and excluded from timing) and notebook 06 (regression + curve models) was added. These changes are LOCAL and NOT yet committed or pushed. Results are preliminary and descriptive. Dr. Mitra signed off on framing, scope, and the new models on 2026-07-08 (see "Confirmed by Dr. Mitra"); a few decisions remain open below.**
 
 Done and verified (each notebook executed clean; committed without outputs; reconstructs 02's logic from raw):
 - `01_data_inventory.ipynb` — load/audit all sources; documents quirks, Option B, FluNet exclusion.
@@ -47,8 +47,9 @@ Done and verified (each notebook executed clean; committed without outputs; reco
 - `03_eda.ipynb` — trajectories, distributions, strain timeline, missingness map (surfaced that FluSurv's 31 missing weekly rates are all 2020-21, correcting an earlier note). Figures in `figures/`.
 - `04_baselines.ipynb` — LOSO floors on 19 seasons (exclude 2008-09, 2009-10, 2020-21). Finding: peak-WEEK timing has no strong naive floor (~3.3-3.8 wk MAE, <=37% within +/-1); severity is more tractable (climatology MAE 1.34, within-season running max 0.84 by W=16). Lead-time-matched bars for 05. Results in `results/`.
 - `05_forecasting.ipynb` — ARIMA + Prophet within-season under a strict leakage firewall (audited clean across 114 fits: last_obs <= W, peak read only from the forecast region, no leak). Honest negative point-forecast result: models do not beat the floor at realistic W. Primary affirmative finding: Prophet's 80% intervals are cap-pinned near the historical-max ceiling while most peaks fall well below, so empirical LOSO coverage is ~6-12% (1-2 of ~17 seasons) vs nominal 80% (Prophet fit seeded for reproducibility; W=12 tips between 5.9% and 11.8% under optimizer convergence) - severely overconfident. RF severity classifier: planned, not implemented.
+- `06_regression_and_curve.ipynb` — three models under the identical firewall, all features strictly through-W (firewall audited). (1) Univariate regression (cumulative-ILI-through-W to peak severity): the first model to honestly beat a floor, MAE 1.26/1.12/0.92 at W=8/12/16, beats climatology (1.34) at every W and beats/ties baseline C at W=8,12. (2) Explanatory ridge (retrospective, NOT a forecast; ili+strain on 19, +vaccine on the 2009+ 14-season subset): strain and vaccine coverage add no severity signal beyond cumulative ILI (standardized ILI coef +0.77..+1.13, all strain coefs <0.09). (3) Gaussian curve fit: bound-pinned on most seasons, worse than climatology on severity, rarely a defined peak week — a reported negative. Results in `results/06_*`, figure `figures/09_severity_by_W.png`.
 
-Open follow-ups (not yet done): empty `src/` with 02's logic duplicated across 03/04/05 (deferred refactor); RF severity classifier (a scope decision for Dr. Mitra, not to be resolved by building it).
+Open follow-ups (not yet done): empty `src/` with 02's logic duplicated across 03/04/05/06 (deferred refactor); RF severity classifier remains not implemented and is superseded as the next step by 06's regression/curve models.
 
 ## The task
 
@@ -98,9 +99,15 @@ influenza-season-forecasting/
 └── src/                # shared utilities (currently empty)
 ```
 
-## Open decisions awaiting Dr. Mitra (do NOT pre-resolve)
+## Confirmed by Dr. Mitra (2026-07-08)
 
-- Option B (core 2003+, enrichment 2009+) versus Option A (all-feature, 2009+ only).
-- The within-season-forecasting framing, and the choice of decision week(s) W.
-- Confirmation that the template's target metrics (MAE < 0.5, peak week within +/- 1 on >= 70% of seasons, RMSE >= 15% under ARIMA, macro F1 > 0.70, 80% interval coverage >= 75%) are goals, not deliverables.
-- Whether national-only stands, or HHS-regional is wanted (the template's own row count implies national).
+- **Framing: characterization study first.** Lead with the precise two-pronged result (peak timing near the naive floor; off-the-shelf models severely overconfident, ~6-11% interval coverage vs 80%). Do not bury the honest finding chasing a better RMSE. This implies the template's target metrics are goals, not deliverables.
+- **Scope: national now.** Get the national methodology clean; one or two HHS regions as a later robustness check, not now.
+- **Models: add a regression approach and a phenomenological curve** (done in 06). Ridge with strain + vaccine coverage was requested; built leakage-safe and split into a real-time univariate forecast plus a retrospective explanatory ridge (strain/vax are lag-reported/survey-revised, not real-time).
+- **Presentation:** ~10-12 min deck (motivation+data 2 slides, holiday-artifact 1, model comparison 2-3, Prophet calibration 1, next steps 1).
+- **Sharing:** consolidate shareable materials in a Google Drive folder; Joshua shares manually.
+
+## Open decisions (still not resolved)
+
+- Option B (core 2003+, enrichment 2009+) versus Option A (all-feature, 2009+ only). Not raised in the 2026-07-08 feedback.
+- The specific decision week(s) W to headline (currently 8/12/16 throughout).
