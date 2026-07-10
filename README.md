@@ -78,18 +78,29 @@ forecast region, and no suspected leak). Full tables: `results/`.
   lead times; Prophet's trend extrapolates monotonically to the forecast horizon, so its predicted
   peak lands at the season end (0% within +/-1). Peak timing appears close to the noise floor at these
   lead times on this sample.
+  - **One apparent exception, and why it does not survive scrutiny.** ARIMA at W=16 posts
+    `pw_skill = +3.00` against baseline C (MAE 3.00 vs 6.00 weeks) in `results/05_forecasting_summary.md`.
+    Peak-week metrics are computed only on non-plateau forecasts, and that exclusion is not neutral:
+    ARIMA locates a peak in just 7 of 12 forecast seasons, and the 5 it drops are the severe ones
+    (mean peak ILI 5.75 versus 4.29 for the 7 it keeps). Baseline C is also a weak *timing* rule,
+    since at W=16 many seasons have not yet peaked. Measured against LOSO climatology on the same 7
+    seasons (3.29 weeks), ARIMA's edge is **0.29 weeks at n=7**, with 1 of 7 within +/-1, below the
+    36.8% floor. Full accounting in `results/05_survivorship.md`.
 - **Peak severity is more tractable, but these off-the-shelf models do not exploit it.** The
   climatology severity floor is MAE 1.34 (`% WEIGHTED ILI`), and the within-season running max sharpens
   to MAE 0.84 once early January is observed (W=16). ARIMA/Prophet only appear to "beat" the floor at
   W=8, where the baseline is degenerate; at the realistic W=12 and W=16 they lose to the within-season
   floor, overshooting milder seasons by extrapolating toward the historical-max ceiling.
 - **Primary affirmative finding (calibration).** Prophet's 80% prediction intervals are pinned near
-  the historical-max ceiling (~7-7.5 ILI) while most seasons peak 1.5-4 points below them, so empirical
-  LOSO coverage is only **~6-12% (1-2 of ~17 seasons) versus the nominal 80%**, about an order of
-  magnitude too low: severely overconfident, by the same upward-extrapolation pathology as the point
-  forecasts. (Per-W coverage is granular at this sample size; W=12 tips between 5.9% and 11.8% under
-  Stan optimizer convergence, so the fit is seeded and the result is quoted as a range.) This stands
-  independently of point-forecast skill.
+  the historical-max ceiling (the median interval at W=12 is [7.09, 7.54] ILI) while most seasons peak
+  well below them: at W=12, **14 of 17 forecast seasons fall under the interval** (2 above, 1 inside),
+  a median 2.20 ILI points beneath its lower bound. Empirical LOSO coverage is only **5.9-10.5% across
+  W (1-2 of 12-19 seasons) versus the nominal 80%**, about an order of magnitude too low: severely
+  overconfident, by the same upward-extrapolation pathology as the point forecasts. (Coverage is
+  granular at this sample size, where one season is worth ~6 percentage points; an earlier *unseeded* run
+  read 11.8% at W=12 because two seasons sit within 0.04 ILI of an interval edge. The fit is now seeded,
+  so 5.9% is reproducible, and the order-of-magnitude undercoverage holds either way.) Per-season
+  split in `results/05_survivorship.md`. This stands independently of point-forecast skill.
 - **A simple regression is the first model to honestly beat a floor (06).** Predicting peak severity
   from cumulative-ILI-through-W gives MAE 1.26 / 1.12 / 0.92 at W=8 / 12 / 16, beating climatology
   (1.34) at every lead time and beating or tying the within-season running-max floor at W=8 and W=12.

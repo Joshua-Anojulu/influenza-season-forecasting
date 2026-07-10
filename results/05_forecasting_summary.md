@@ -29,3 +29,8 @@
 | 8 | 19 | 80.0 | 10.5 | over-confident |
 | 12 | 17 | 80.0 | 5.9 | over-confident |
 | 16 | 12 | 80.0 | 8.3 | over-confident |
+
+> **Do not read `ARIMA / W=16 / pw_skill = +3.00` as a timing win.** Peak-week metrics are computed
+> only on the 7 of 12 forecasts where ARIMA yields a non-plateau peak, and the 5 it drops are the
+> severe seasons. Against LOSO climatology on the same 7 seasons the edge is 0.29 weeks at n=7.
+> See `05_survivorship.md`.

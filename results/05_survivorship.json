@@ -1,0 +1,84 @@
+{
+  "prophet_interval_split": [
+    {
+      "W": 8,
+      "n": 19,
+      "inside": 2,
+      "below": 16,
+      "above": 1,
+      "coverage_pct": 10.5,
+      "pi_lo_median": 7.02,
+      "pi_hi_median": 7.22,
+      "below_gap_median": 2.16,
+      "below_gap_min": 0.02,
+      "below_gap_max": 3.53
+    },
+    {
+      "W": 12,
+      "n": 17,
+      "inside": 1,
+      "below": 14,
+      "above": 2,
+      "coverage_pct": 5.9,
+      "pi_lo_median": 7.09,
+      "pi_hi_median": 7.54,
+      "below_gap_median": 2.2,
+      "below_gap_min": 0.64,
+      "below_gap_max": 3.96
+    },
+    {
+      "W": 16,
+      "n": 12,
+      "inside": 1,
+      "below": 10,
+      "above": 1,
+      "coverage_pct": 8.3,
+      "pi_lo_median": 6.68,
+      "pi_hi_median": 7.44,
+      "below_gap_median": 1.97,
+      "below_gap_min": 0.17,
+      "below_gap_max": 3.37
+    }
+  ],
+  "arima_defined_subset": [
+    {
+      "W": 8,
+      "n_forecast": 19,
+      "n_defined": 9,
+      "n_ambiguous": 10,
+      "arima_pw_MAE": 30.78,
+      "arima_pw_within1": 0.0,
+      "baselineC_pw_MAE": 10.67,
+      "climatology_pw_MAE_matched": 3.44,
+      "kept_mean_true_ili": 4.6,
+      "dropped_mean_true_ili": 5.73,
+      "edge_vs_climatology": -27.34
+    },
+    {
+      "W": 12,
+      "n_forecast": 17,
+      "n_defined": 4,
+      "n_ambiguous": 13,
+      "arima_pw_MAE": 25.25,
+      "arima_pw_within1": 0.0,
+      "baselineC_pw_MAE": 9.25,
+      "climatology_pw_MAE_matched": 4.25,
+      "kept_mean_true_ili": 4.08,
+      "dropped_mean_true_ili": 5.21,
+      "edge_vs_climatology": -21.0
+    },
+    {
+      "W": 16,
+      "n_forecast": 12,
+      "n_defined": 7,
+      "n_ambiguous": 5,
+      "arima_pw_MAE": 3.0,
+      "arima_pw_within1": 14.3,
+      "baselineC_pw_MAE": 6.0,
+      "climatology_pw_MAE_matched": 3.29,
+      "kept_mean_true_ili": 4.29,
+      "dropped_mean_true_ili": 5.75,
+      "edge_vs_climatology": 0.29
+    }
+  ]
+}

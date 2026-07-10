@@ -60,7 +60,7 @@
   <div class="eyebrow">Within-season forecasting &middot; US CDC surveillance</div>
   <h1>Forecasting Influenza Season Peaks:<br>what the data can and cannot support</h1>
   <p class="sub">A characterization study of peak timing and peak severity across 22 seasons of national ILI data. Honest floors, a strict leakage firewall, and where off-the-shelf models actually stand.</p>
-  <p class="muted" style="margin-top:30px;font-size:clamp(12px,1.5vw,16px)">Joshua &middot; advised by Dr. Subhro Mitra &middot; 2026-07-08 &middot; preliminary and descriptive</p>
+  <p class="muted" style="margin-top:30px;font-size:clamp(12px,1.5vw,16px)">Joshua &middot; advised by Dr. Subhro Mitra &middot; 2026-07-10 &middot; preliminary and descriptive</p>
 </div>
 
 <!-- 2 MOTIVATION / DATA -->
@@ -156,11 +156,12 @@
   <h2>No model beats the timing floor</h2>
   <ul>
     <li class="bad"><b>Prophet</b>: logistic trend rises monotonically to the horizon, so the predicted peak lands at the season end. <b>0% within &plusmn;1</b> at every W.</li>
-    <li class="bad"><b>ARIMA</b>: blows up in log space and clips flat to the historical-max cap, producing no locatable peak week in 10/13/5 of the 19/17/12 forecasts (W=8/12/16). The remaining defined peaks do not beat the floor.</li>
+    <li class="bad"><b>ARIMA</b>: blows up in log space and clips flat to the historical-max cap, producing no locatable peak week in 10/13/5 of the 19/17/12 forecasts (W=8/12/16).</li>
     <li class="bad"><b>Gaussian curve</b>: yields a well-defined peak week in only 5 / 1 / 0 forecast seasons at W=8 / 12 / 16.</li>
+    <li class="warn"><b>The one apparent exception, stated plainly.</b> On the 7 of 12 seasons where ARIMA does locate a peak at W=16, its MAE is <b>3.00 wk</b> against <b>6.00</b> for the running-max floor. But those 7 are selected by the model's own success: the 5 it drops are the severe seasons (mean peak ILI <b>5.75</b> vs <b>4.29</b> for the 7 it keeps). Against LOSO climatology on the <i>same</i> 7 seasons (3.29 wk) the edge is <b>0.29 wk at n=7</b>, and only 1 of 7 lands within &plusmn;1.</li>
     <li class="warn">Root cause is not the model class: at realistic lead times <b>the peak has not happened yet</b>, so nothing in the data locates it.</li>
   </ul>
-  <div class="footnote">Firewall audited: no post-W data enters any fit; predicted peaks are read only from the forecast region (sw &gt; W). No leak flagged.</div>
+  <div class="footnote">Firewall audited: no post-W data enters any fit; predicted peaks are read only from the forecast region (sw &gt; W). No leak flagged. Timing metrics use non-plateau forecasts only; the selection effect is quantified in <b>results/05_survivorship.md</b>.</div>
 </div>
 
 <!-- 6 MODEL COMPARISON: SEVERITY -->
@@ -173,11 +174,11 @@
       <ul>
         <li class="good"><b>Univariate regression</b> (peak severity from cumulative-ILI-through-W): MAE <b>1.26 / 1.12 / 0.92</b> at W=8/12/16. Beats climatology at every W; beats or ties the running-max floor at W=8, 12.</li>
         <li class="bad"><b>Ridge + strain + vaccine coverage</b>: no better than ILI alone. Those covariates carry no extra severity signal at this sample size.</li>
-        <li class="bad"><b>Gaussian</b>: amplitude pins to the cap and overshoots (MAE 2.3-2.6), worse than climatology.</li>
+        <li class="bad"><b>Gaussian</b>: amplitude pins to the cap and overshoots (MAE 2.3-2.6 at W=8, 12), worse than climatology. Its apparent recovery to <b>1.47</b> at W=16 is scored on only <b>5 of 19</b> seasons, the ones its curve fit did not pin to a bound, so it is not comparable.</li>
       </ul>
     </div>
   </div>
-  <div class="footnote">Real-time-honest: ILINet is the one signal genuinely in hand at W. Strain (reporting lag) and vaccine coverage (revised survey) enter only the retrospective explanatory model.</div>
+  <div class="footnote">Real-time-honest: ILINet is the one signal genuinely in hand at W. Strain (reporting lag) and vaccine coverage (revised survey) enter only the retrospective explanatory model. Reference series use all 19 modeled seasons at every W; the Gaussian is scored on its forecast subset (n=19/18/5). See <b>figures/09_severity_by_W.png</b>.</div>
 </div>
 
 <!-- 7 CALIBRATION FINDING -->
@@ -188,14 +189,14 @@
     <div class="chart-wrap"><canvas id="calChart"></canvas></div>
     <div>
       <ul>
-        <li>Prophet's intervals sit pinned near the historical-max ceiling (~7-7.5 ILI).</li>
-        <li>Most seasons peak <b>1.5-4 points below</b> that: 14 of 17 forecast seasons at W=12 fall <b>under</b> the interval.</li>
-        <li>Empirical 80% coverage is <b>only 6-11%</b>, about an order of magnitude too low.</li>
+        <li>Prophet's intervals sit pinned near the historical-max ceiling: median 80% interval at W=12 is <b>[7.09, 7.54]</b> ILI.</li>
+        <li>At W=12, <b>14 of 17</b> forecast seasons fall <b>under</b> that interval (2 above, 1 inside), a median <b>2.20</b> ILI points below its lower bound.</li>
+        <li>Empirical 80% coverage is <b>5.9-10.5%</b> across W, about an order of magnitude too low.</li>
         <li>Same upward-extrapolation pathology as the point forecasts, now in the uncertainty bands.</li>
       </ul>
     </div>
   </div>
-  <div class="footnote">Coverage is granular at n~17; W=12 tips between 5.9% and 11.8% under optimizer convergence, so the fit is seeded and the result quoted as a range. The order-of-magnitude undercoverage is robust.</div>
+  <div class="footnote">Coverage is granular at n=12-19 (1-2 seasons covered; one season &asymp; 6 percentage points). An earlier <i>unseeded</i> run read 11.8% at W=12 because two seasons sit within 0.04 ILI of an interval edge; the fit is now seeded (seed=42) and 5.9% is reproducible. The order-of-magnitude undercoverage holds either way. Per-season split: <b>results/05_survivorship.md</b>.</div>
 </div>
 
 <!-- 8 SYNTHESIS -->
@@ -204,7 +205,7 @@
   <h2>Honest characterization, two affirmative findings</h2>
   <ul>
     <li class="good"><b>Severity is forecastable</b> from early-season ILI intensity by a simple regression that beats the naive floor.</li>
-    <li class="good"><b>Off-the-shelf uncertainty is not trustworthy</b>: Prophet's 80% intervals cover the truth ~6-11% of the time.</li>
+    <li class="good"><b>Off-the-shelf uncertainty is not trustworthy</b>: Prophet's 80% intervals cover the truth 5.9-10.5% of the time.</li>
     <li class="warn"><b>Timing is near the noise floor</b> at realistic lead times, and no model class here overcomes it.</li>
     <li class="bad"><b>Strain, vaccine coverage, and a curve model add nothing</b> at this sample size and these lead times.</li>
   </ul>
@@ -256,7 +257,7 @@ new Chart(document.getElementById('sevChart'),{
     {label:'Climatology',data:[1.341,1.341,1.341],borderColor:'#9AA4B2',borderDash:[6,4],borderWidth:2,pointRadius:0,tension:0},
     {label:'Running-max floor',data:[2.667,1.241,0.842],borderColor:'#FFB74D',borderWidth:2,pointRadius:3,tension:.2},
     {label:'Univariate regression',data:[1.256,1.124,0.917],borderColor:'#66BB6A',borderWidth:3,pointRadius:4,tension:.2},
-    {label:'Gaussian',data:[2.324,2.586,1.470],borderColor:'#EF5350',borderWidth:2,pointRadius:3,tension:.2}
+    {label:'Gaussian (n=19/18/5)',data:[2.324,2.586,1.470],borderColor:'#EF5350',borderWidth:2,pointRadius:3,tension:.2}
   ]},
   options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{labels:{color:'#E6EAF0',boxWidth:14,font:{size:11}}},title:{display:true,text:'Peak severity MAE (% WEIGHTED ILI) by lead time',color:'#9AA4B2',font:{size:12}}},
