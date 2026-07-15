@@ -135,7 +135,7 @@ model, which is future work.
 ├── data/raw/             # gitignored; CDC source CSVs
 ├── figures/              # generated EDA + calibration figures
 ├── results/              # baseline + forecasting summaries (markdown + JSON)
-├── slides/               # findings deck (HTML)
+├── slides/               # findings deck (PowerPoint / Google Slides)
 ├── docs/                 # design spec + implementation plan
 └── src/                  # shared utilities (currently empty)
 ```

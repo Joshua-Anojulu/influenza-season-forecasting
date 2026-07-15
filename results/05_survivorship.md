@@ -1,6 +1,6 @@
 # 05 supplementary diagnostics (derived from the LOSO fits)
 
-Both tables back claims made in `slides/influenza_findings_deck.html`, recorded here so every
+Both tables back claims made in `slides/influenza_findings_deck.pptx`, recorded here so every
 slide number is checkable against a committed artifact.
 
 ## 1. Prophet 80% interval split

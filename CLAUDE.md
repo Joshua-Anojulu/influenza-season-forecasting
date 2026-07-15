@@ -103,7 +103,7 @@ influenza-season-forecasting/
 ├── data/raw/           # gitignored; place the CDC source files here
 ├── figures/            # generated EDA + calibration figures (tracked)
 ├── results/            # baseline + forecasting summaries, md + json (tracked)
-├── slides/             # findings deck (HTML)
+├── slides/             # findings deck (PowerPoint / Google Slides)
 ├── docs/               # design spec + implementation plan
 └── src/                # shared utilities (currently empty)
 ```
