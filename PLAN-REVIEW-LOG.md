@@ -166,3 +166,35 @@ APPROVED. Converged in 3 rounds. The single residual (a wording ambiguity: the S
 the one intentionally-changed JSON) was folded in: the gate now states every protected file is
 hashed except `results/06_regression_curve_summary.json`, which is checked key-by-key for its
 pre-existing keys. No open disagreements between the two models.
+
+## Act 3 — Build (codex-build)
+
+Builder: Codex (gpt-5.6-sol, xhigh), fresh session 019f83a4-a8c5-7f63-a275-dff8407b3a20. Verifier: Claude (independent).
+
+### Round 1 — Codex build
+Implemented step 1 (notebook 05 sidecar + excluded-season stress test + D1), then STOPPED at the
+step-1.6 protected gate as the plan requires: gate FAIL 13/19.
+
+### Claude's verdict — round 1
+Not numerical drift. Verified independently: this checkout is core.autocrlf=true with no .gitattributes,
+so 5/6 failures are CRLF-vs-LF only (content byte-identical after stripping \r). The 6th
+(results/05_survivorship.md) was a REAL but PRE-EXISTING desync: notebook 05 source wrote
+influenza_findings_deck.html while HEAD (unpushed commit 77fe3c8) says .pptx. Root cause: 77fe3c8
+hand-edited the artifact without updating the generator. Two fixes ordered: (a) normalize line endings
+in the gate; (b) correct notebook 05's deck string to .pptx and regenerate.
+
+### Round 2 — Codex build (resume, same session)
+Applied both fixes, then completed steps 2-4: notebook 06 ridge_coefficients key; new notebook 07
+(template lag/rolling/hosp features, index firewall 66/66, two-panel ridge with corrected column-wise
+inner-CV imputation, H1 paired test, D3 grouped-block ablations, excluded seasons under Panel A);
+README + CLAUDE updates. Reported normalized gate PASS 19/19, notebooks output-cleared.
+
+### Claude's verdict — round 2 (APPROVED for human gate)
+Independently re-ran the normalized protected gate: PASS 19/19. Confirmed: git ls-files data/ empty;
+deck ref now .pptx in both notebook 05 and 05_survivorship.md; 06 JSON added only ridge_coefficients
+(no pre-existing key changed); all three notebooks have 0 outputs / null execution_count; new artifacts
+present and non-trivial. Substance is honest and plan-compliant: H1 gets NO descriptive support (all
+bootstrap intervals cross zero), Panel B flagged high-variance descriptive, ablations grouped not
+per-feature, pandemic seasons per-season structural-break-labeled, Option B provisional, template
+deviations recorded. No numerical result in any protected artifact changed. Pending Joshua's commit
+sign-off; nothing committed or pushed.

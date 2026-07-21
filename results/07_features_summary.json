@@ -1,0 +1,1482 @@
+{
+  "status": "preliminary descriptive analysis; Option B assumption, pending advisor decision",
+  "decision_weeks": [
+    8,
+    12,
+    16
+  ],
+  "panel_definitions": {
+    "A": {
+      "n": 19,
+      "conceptual_features": 7,
+      "model_columns": 9,
+      "caveat": "strained ratio; retrospective because strain is reporting-lagged"
+    },
+    "B": {
+      "n": 14,
+      "conceptual_features": 9,
+      "model_columns": 11,
+      "caveat": "high-variance descriptive analysis, not feature-ranking evidence"
+    }
+  },
+  "panel_performance": [
+    {
+      "panel": "A",
+      "W": 8,
+      "n": 19,
+      "conceptual_features": 7,
+      "model_columns": 9,
+      "MAE": 1.195,
+      "RMSE": 1.442,
+      "baselineC_MAE": 2.667
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "n": 14,
+      "conceptual_features": 9,
+      "model_columns": 11,
+      "MAE": 1.268,
+      "RMSE": 1.571,
+      "baselineC_MAE": 2.628
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "n": 19,
+      "conceptual_features": 7,
+      "model_columns": 9,
+      "MAE": 1.075,
+      "RMSE": 1.332,
+      "baselineC_MAE": 1.241
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "n": 14,
+      "conceptual_features": 9,
+      "model_columns": 11,
+      "MAE": 0.906,
+      "RMSE": 1.276,
+      "baselineC_MAE": 1.176
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "n": 19,
+      "conceptual_features": 7,
+      "model_columns": 9,
+      "MAE": 1.175,
+      "RMSE": 1.593,
+      "baselineC_MAE": 0.842
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "n": 14,
+      "conceptual_features": 9,
+      "model_columns": 11,
+      "MAE": 0.577,
+      "RMSE": 0.707,
+      "baselineC_MAE": 0.711
+    }
+  ],
+  "ridge_coefficients": [
+    {
+      "panel": "A",
+      "W": 8,
+      "feature": "cum_ili",
+      "coefficient": -0.133804
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "feature": "ili_lag_1",
+      "coefficient": 0.613561
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "feature": "ili_lag_2",
+      "coefficient": 0.894733
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "feature": "ili_lag_3",
+      "coefficient": 0.282414
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "feature": "ili_lag_4",
+      "coefficient": -1.066109
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "feature": "ili_rolling4",
+      "coefficient": 0.245565
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "feature": "A(H1N1)",
+      "coefficient": 0.057037
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "feature": "A(H3N2)",
+      "coefficient": 0.005932
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "feature": "B",
+      "coefficient": -0.071617
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "feature": "cum_ili",
+      "coefficient": 0.034639
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "feature": "ili_lag_1",
+      "coefficient": 0.916447
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "feature": "ili_lag_2",
+      "coefficient": -0.117034
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "feature": "ili_lag_3",
+      "coefficient": -0.13317
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "feature": "ili_lag_4",
+      "coefficient": 0.234514
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "feature": "ili_rolling4",
+      "coefficient": 0.243563
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "feature": "A(H1N1)",
+      "coefficient": 0.100319
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "feature": "A(H3N2)",
+      "coefficient": -0.037439
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "feature": "B",
+      "coefficient": -0.062633
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "feature": "cum_ili",
+      "coefficient": 0.906467
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "feature": "ili_lag_1",
+      "coefficient": 0.830916
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "feature": "ili_lag_2",
+      "coefficient": -0.243212
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "feature": "ili_lag_3",
+      "coefficient": -0.505984
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "feature": "ili_lag_4",
+      "coefficient": 0.383203
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "feature": "ili_rolling4",
+      "coefficient": 0.144361
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "feature": "A(H1N1)",
+      "coefficient": 0.033587
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "feature": "A(H3N2)",
+      "coefficient": -0.007879
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "feature": "B",
+      "coefficient": -0.052895
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "cum_ili",
+      "coefficient": 0.200728
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "ili_lag_1",
+      "coefficient": 0.363634
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "ili_lag_2",
+      "coefficient": 0.627592
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "ili_lag_3",
+      "coefficient": 0.256692
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "ili_lag_4",
+      "coefficient": -0.303721
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "ili_rolling4",
+      "coefficient": 0.258413
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "A(H1N1)",
+      "coefficient": -0.090996
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "A(H3N2)",
+      "coefficient": -0.059322
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "B",
+      "coefficient": 0.187933
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "vax",
+      "coefficient": -0.312506
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "feature": "hosp_rate_lag1",
+      "coefficient": -0.460154
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "cum_ili",
+      "coefficient": -0.013054
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "ili_lag_1",
+      "coefficient": 0.847414
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "ili_lag_2",
+      "coefficient": -0.003276
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "ili_lag_3",
+      "coefficient": -0.123068
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "ili_lag_4",
+      "coefficient": 0.168067
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "ili_rolling4",
+      "coefficient": 0.231246
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "A(H1N1)",
+      "coefficient": -0.116053
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "A(H3N2)",
+      "coefficient": -0.036425
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "B",
+      "coefficient": 0.185961
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "vax",
+      "coefficient": -0.276913
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "feature": "hosp_rate_lag1",
+      "coefficient": 0.248153
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "cum_ili",
+      "coefficient": 0.980843
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "ili_lag_1",
+      "coefficient": 0.498364
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "ili_lag_2",
+      "coefficient": 0.075657
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "ili_lag_3",
+      "coefficient": -0.085006
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "ili_lag_4",
+      "coefficient": -0.272831
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "ili_rolling4",
+      "coefficient": 0.037972
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "A(H1N1)",
+      "coefficient": -0.036672
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "A(H3N2)",
+      "coefficient": 0.042188
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "B",
+      "coefficient": -0.014164
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "vax",
+      "coefficient": 0.168112
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "feature": "hosp_rate_lag1",
+      "coefficient": 0.449143
+    }
+  ],
+  "block_ablations": [
+    {
+      "panel": "A",
+      "W": 8,
+      "group": "cum_ili",
+      "full_MAE": 1.195,
+      "ablated_MAE": 1.211,
+      "delta_MAE": 0.016
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "group": "recent_ILI_lag_block",
+      "full_MAE": 1.195,
+      "ablated_MAE": 1.204,
+      "delta_MAE": 0.009
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "group": "rolling_summary",
+      "full_MAE": 1.195,
+      "ablated_MAE": 1.172,
+      "delta_MAE": -0.023
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "group": "recent_ILI_all",
+      "full_MAE": 1.195,
+      "ablated_MAE": 1.279,
+      "delta_MAE": 0.084
+    },
+    {
+      "panel": "A",
+      "W": 8,
+      "group": "strain_block",
+      "full_MAE": 1.195,
+      "ablated_MAE": 1.32,
+      "delta_MAE": 0.125
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "group": "cum_ili",
+      "full_MAE": 1.075,
+      "ablated_MAE": 1.008,
+      "delta_MAE": -0.067
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "group": "recent_ILI_lag_block",
+      "full_MAE": 1.075,
+      "ablated_MAE": 1.066,
+      "delta_MAE": -0.009
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "group": "rolling_summary",
+      "full_MAE": 1.075,
+      "ablated_MAE": 1.045,
+      "delta_MAE": -0.03
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "group": "recent_ILI_all",
+      "full_MAE": 1.075,
+      "ablated_MAE": 1.19,
+      "delta_MAE": 0.116
+    },
+    {
+      "panel": "A",
+      "W": 12,
+      "group": "strain_block",
+      "full_MAE": 1.075,
+      "ablated_MAE": 1.101,
+      "delta_MAE": 0.027
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "group": "cum_ili",
+      "full_MAE": 1.175,
+      "ablated_MAE": 1.092,
+      "delta_MAE": -0.082
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "group": "recent_ILI_lag_block",
+      "full_MAE": 1.175,
+      "ablated_MAE": 0.859,
+      "delta_MAE": -0.316
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "group": "rolling_summary",
+      "full_MAE": 1.175,
+      "ablated_MAE": 1.171,
+      "delta_MAE": -0.004
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "group": "recent_ILI_all",
+      "full_MAE": 1.175,
+      "ablated_MAE": 0.981,
+      "delta_MAE": -0.194
+    },
+    {
+      "panel": "A",
+      "W": 16,
+      "group": "strain_block",
+      "full_MAE": 1.175,
+      "ablated_MAE": 0.966,
+      "delta_MAE": -0.209
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "group": "cum_ili",
+      "full_MAE": 1.268,
+      "ablated_MAE": 1.27,
+      "delta_MAE": 0.002
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "group": "recent_ILI_lag_block",
+      "full_MAE": 1.268,
+      "ablated_MAE": 1.244,
+      "delta_MAE": -0.024
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "group": "rolling_summary",
+      "full_MAE": 1.268,
+      "ablated_MAE": 1.263,
+      "delta_MAE": -0.005
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "group": "recent_ILI_all",
+      "full_MAE": 1.268,
+      "ablated_MAE": 1.234,
+      "delta_MAE": -0.034
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "group": "strain_block",
+      "full_MAE": 1.268,
+      "ablated_MAE": 1.238,
+      "delta_MAE": -0.03
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "group": "vax",
+      "full_MAE": 1.268,
+      "ablated_MAE": 1.252,
+      "delta_MAE": -0.016
+    },
+    {
+      "panel": "B",
+      "W": 8,
+      "group": "hosp_rate_lag1",
+      "full_MAE": 1.268,
+      "ablated_MAE": 1.174,
+      "delta_MAE": -0.094
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "group": "cum_ili",
+      "full_MAE": 0.906,
+      "ablated_MAE": 1.258,
+      "delta_MAE": 0.353
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "group": "recent_ILI_lag_block",
+      "full_MAE": 0.906,
+      "ablated_MAE": 1.178,
+      "delta_MAE": 0.272
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "group": "rolling_summary",
+      "full_MAE": 0.906,
+      "ablated_MAE": 1.091,
+      "delta_MAE": 0.185
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "group": "recent_ILI_all",
+      "full_MAE": 0.906,
+      "ablated_MAE": 1.272,
+      "delta_MAE": 0.366
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "group": "strain_block",
+      "full_MAE": 0.906,
+      "ablated_MAE": 1.124,
+      "delta_MAE": 0.218
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "group": "vax",
+      "full_MAE": 0.906,
+      "ablated_MAE": 0.996,
+      "delta_MAE": 0.09
+    },
+    {
+      "panel": "B",
+      "W": 12,
+      "group": "hosp_rate_lag1",
+      "full_MAE": 0.906,
+      "ablated_MAE": 1.212,
+      "delta_MAE": 0.306
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "group": "cum_ili",
+      "full_MAE": 0.577,
+      "ablated_MAE": 0.779,
+      "delta_MAE": 0.202
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "group": "recent_ILI_lag_block",
+      "full_MAE": 0.577,
+      "ablated_MAE": 0.684,
+      "delta_MAE": 0.107
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "group": "rolling_summary",
+      "full_MAE": 0.577,
+      "ablated_MAE": 0.574,
+      "delta_MAE": -0.003
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "group": "recent_ILI_all",
+      "full_MAE": 0.577,
+      "ablated_MAE": 0.532,
+      "delta_MAE": -0.045
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "group": "strain_block",
+      "full_MAE": 0.577,
+      "ablated_MAE": 0.5,
+      "delta_MAE": -0.078
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "group": "vax",
+      "full_MAE": 0.577,
+      "ablated_MAE": 0.577,
+      "delta_MAE": -0.0
+    },
+    {
+      "panel": "B",
+      "W": 16,
+      "group": "hosp_rate_lag1",
+      "full_MAE": 0.577,
+      "ablated_MAE": 0.362,
+      "delta_MAE": -0.215
+    }
+  ],
+  "h1": {
+    "hypothesis": "four-week prior ILI is the strongest predictor of peak severity",
+    "conclusion": "No descriptive support for H1: the lag model does not have lower MAE at all three W values. The paired intervals and sign tests are descriptive at n=19 with three W comparisons.",
+    "summary": [
+      {
+        "W": 8,
+        "n": 19,
+        "lags_MAE": 1.125,
+        "cum_ili_MAE": 1.256,
+        "climatology_MAE": 1.341,
+        "baselineC_MAE": 2.667,
+        "mean_delta_lags_minus_cum": -0.131,
+        "bootstrap_95_lo": -0.451,
+        "bootstrap_95_hi": 0.145,
+        "lag_wins": 10,
+        "cum_ili_wins": 9,
+        "ties": 0,
+        "sign_test_p": 1.0
+      },
+      {
+        "W": 12,
+        "n": 19,
+        "lags_MAE": 1.189,
+        "cum_ili_MAE": 1.124,
+        "climatology_MAE": 1.341,
+        "baselineC_MAE": 1.241,
+        "mean_delta_lags_minus_cum": 0.065,
+        "bootstrap_95_lo": -0.342,
+        "bootstrap_95_hi": 0.558,
+        "lag_wins": 9,
+        "cum_ili_wins": 10,
+        "ties": 0,
+        "sign_test_p": 1.0
+      },
+      {
+        "W": 16,
+        "n": 19,
+        "lags_MAE": 1.067,
+        "cum_ili_MAE": 0.917,
+        "climatology_MAE": 1.341,
+        "baselineC_MAE": 0.842,
+        "mean_delta_lags_minus_cum": 0.15,
+        "bootstrap_95_lo": -0.082,
+        "bootstrap_95_hi": 0.421,
+        "lag_wins": 9,
+        "cum_ili_wins": 10,
+        "ties": 0,
+        "sign_test_p": 1.0
+      }
+    ],
+    "paired_errors": [
+      {
+        "season": "2003-04",
+        "W": 8,
+        "true_ili": 7.499,
+        "lags_pred": 7.5846,
+        "cum_ili_pred": 5.1122,
+        "lags_abs_error": 0.0856,
+        "cum_ili_abs_error": 2.3868,
+        "delta_lags_minus_cum": -2.3012
+      },
+      {
+        "season": "2004-05",
+        "W": 8,
+        "true_ili": 5.029,
+        "lags_pred": 4.3441,
+        "cum_ili_pred": 4.5723,
+        "lags_abs_error": 0.6849,
+        "cum_ili_abs_error": 0.4567,
+        "delta_lags_minus_cum": 0.2282
+      },
+      {
+        "season": "2005-06",
+        "W": 8,
+        "true_ili": 3.128,
+        "lags_pred": 4.5225,
+        "cum_ili_pred": 4.8852,
+        "lags_abs_error": 1.3945,
+        "cum_ili_abs_error": 1.7572,
+        "delta_lags_minus_cum": -0.3627
+      },
+      {
+        "season": "2006-07",
+        "W": 8,
+        "true_ili": 3.456,
+        "lags_pred": 4.8383,
+        "cum_ili_pred": 4.7947,
+        "lags_abs_error": 1.3823,
+        "cum_ili_abs_error": 1.3387,
+        "delta_lags_minus_cum": 0.0436
+      },
+      {
+        "season": "2007-08",
+        "W": 8,
+        "true_ili": 5.793,
+        "lags_pred": 4.4166,
+        "cum_ili_pred": 4.6639,
+        "lags_abs_error": 1.3764,
+        "cum_ili_abs_error": 1.1291,
+        "delta_lags_minus_cum": 0.2473
+      },
+      {
+        "season": "2010-11",
+        "W": 8,
+        "true_ili": 4.523,
+        "lags_pred": 4.6122,
+        "cum_ili_pred": 4.7503,
+        "lags_abs_error": 0.0892,
+        "cum_ili_abs_error": 0.2273,
+        "delta_lags_minus_cum": -0.1381
+      },
+      {
+        "season": "2011-12",
+        "W": 8,
+        "true_ili": 2.258,
+        "lags_pred": 4.2987,
+        "cum_ili_pred": 4.8636,
+        "lags_abs_error": 2.0407,
+        "cum_ili_abs_error": 2.6056,
+        "delta_lags_minus_cum": -0.5649
+      },
+      {
+        "season": "2012-13",
+        "W": 8,
+        "true_ili": 5.012,
+        "lags_pred": 4.9951,
+        "cum_ili_pred": 4.8843,
+        "lags_abs_error": 0.0169,
+        "cum_ili_abs_error": 0.1277,
+        "delta_lags_minus_cum": -0.1108
+      },
+      {
+        "season": "2013-14",
+        "W": 8,
+        "true_ili": 4.145,
+        "lags_pred": 4.5032,
+        "cum_ili_pred": 4.8071,
+        "lags_abs_error": 0.3582,
+        "cum_ili_abs_error": 0.6621,
+        "delta_lags_minus_cum": -0.3039
+      },
+      {
+        "season": "2014-15",
+        "W": 8,
+        "true_ili": 5.455,
+        "lags_pred": 4.7835,
+        "cum_ili_pred": 4.7897,
+        "lags_abs_error": 0.6715,
+        "cum_ili_abs_error": 0.6653,
+        "delta_lags_minus_cum": 0.0062
+      },
+      {
+        "season": "2015-16",
+        "W": 8,
+        "true_ili": 3.348,
+        "lags_pred": 4.6566,
+        "cum_ili_pred": 4.8938,
+        "lags_abs_error": 1.3086,
+        "cum_ili_abs_error": 1.5458,
+        "delta_lags_minus_cum": -0.2372
+      },
+      {
+        "season": "2016-17",
+        "W": 8,
+        "true_ili": 4.834,
+        "lags_pred": 4.5511,
+        "cum_ili_pred": 4.7812,
+        "lags_abs_error": 0.2829,
+        "cum_ili_abs_error": 0.0528,
+        "delta_lags_minus_cum": 0.2302
+      },
+      {
+        "season": "2017-18",
+        "W": 8,
+        "true_ili": 7.364,
+        "lags_pred": 4.9646,
+        "cum_ili_pred": 4.8706,
+        "lags_abs_error": 2.3994,
+        "cum_ili_abs_error": 2.4934,
+        "delta_lags_minus_cum": -0.094
+      },
+      {
+        "season": "2018-19",
+        "W": 8,
+        "true_ili": 4.937,
+        "lags_pred": 4.761,
+        "cum_ili_pred": 5.0699,
+        "lags_abs_error": 0.176,
+        "cum_ili_abs_error": 0.1329,
+        "delta_lags_minus_cum": 0.0432
+      },
+      {
+        "season": "2019-20",
+        "W": 8,
+        "true_ili": 6.553,
+        "lags_pred": 6.1451,
+        "cum_ili_pred": 5.3554,
+        "lags_abs_error": 0.4079,
+        "cum_ili_abs_error": 1.1976,
+        "delta_lags_minus_cum": -0.7897
+      },
+      {
+        "season": "2021-22",
+        "W": 8,
+        "true_ili": 4.4,
+        "lags_pred": 5.232,
+        "cum_ili_pred": 5.5723,
+        "lags_abs_error": 0.832,
+        "cum_ili_abs_error": 1.1723,
+        "delta_lags_minus_cum": -0.3403
+      },
+      {
+        "season": "2022-23",
+        "W": 8,
+        "true_ili": 7.171,
+        "lags_pred": 11.3374,
+        "cum_ili_pred": 10.9441,
+        "lags_abs_error": 4.1664,
+        "cum_ili_abs_error": 3.7731,
+        "delta_lags_minus_cum": 0.3934
+      },
+      {
+        "season": "2023-24",
+        "W": 8,
+        "true_ili": 6.248,
+        "lags_pred": 7.6524,
+        "cum_ili_pred": 6.3696,
+        "lags_abs_error": 1.4044,
+        "cum_ili_abs_error": 0.1216,
+        "delta_lags_minus_cum": 1.2828
+      },
+      {
+        "season": "2024-25",
+        "W": 8,
+        "true_ili": 7.543,
+        "lags_pred": 5.2526,
+        "cum_ili_pred": 5.5331,
+        "lags_abs_error": 2.2904,
+        "cum_ili_abs_error": 2.0099,
+        "delta_lags_minus_cum": 0.2805
+      },
+      {
+        "season": "2003-04",
+        "W": 12,
+        "true_ili": 7.499,
+        "lags_pred": 2.5257,
+        "cum_ili_pred": 6.1647,
+        "lags_abs_error": 4.9733,
+        "cum_ili_abs_error": 1.3343,
+        "delta_lags_minus_cum": 3.6391
+      },
+      {
+        "season": "2004-05",
+        "W": 12,
+        "true_ili": 5.029,
+        "lags_pred": 4.1646,
+        "cum_ili_pred": 4.2645,
+        "lags_abs_error": 0.8644,
+        "cum_ili_abs_error": 0.7645,
+        "delta_lags_minus_cum": 0.0999
+      },
+      {
+        "season": "2005-06",
+        "W": 12,
+        "true_ili": 3.128,
+        "lags_pred": 4.7159,
+        "cum_ili_pred": 4.7133,
+        "lags_abs_error": 1.5879,
+        "cum_ili_abs_error": 1.5853,
+        "delta_lags_minus_cum": 0.0026
+      },
+      {
+        "season": "2006-07",
+        "W": 12,
+        "true_ili": 3.456,
+        "lags_pred": 4.6439,
+        "cum_ili_pred": 4.6306,
+        "lags_abs_error": 1.1879,
+        "cum_ili_abs_error": 1.1746,
+        "delta_lags_minus_cum": 0.0132
+      },
+      {
+        "season": "2007-08",
+        "W": 12,
+        "true_ili": 5.793,
+        "lags_pred": 3.4998,
+        "cum_ili_pred": 4.2416,
+        "lags_abs_error": 2.2932,
+        "cum_ili_abs_error": 1.5514,
+        "delta_lags_minus_cum": 0.7419
+      },
+      {
+        "season": "2010-11",
+        "W": 12,
+        "true_ili": 4.523,
+        "lags_pred": 4.5698,
+        "cum_ili_pred": 4.563,
+        "lags_abs_error": 0.0468,
+        "cum_ili_abs_error": 0.04,
+        "delta_lags_minus_cum": 0.0069
+      },
+      {
+        "season": "2011-12",
+        "W": 12,
+        "true_ili": 2.258,
+        "lags_pred": 4.2426,
+        "cum_ili_pred": 4.4897,
+        "lags_abs_error": 1.9846,
+        "cum_ili_abs_error": 2.2317,
+        "delta_lags_minus_cum": -0.2471
+      },
+      {
+        "season": "2012-13",
+        "W": 12,
+        "true_ili": 5.012,
+        "lags_pred": 5.2999,
+        "cum_ili_pred": 5.004,
+        "lags_abs_error": 0.2879,
+        "cum_ili_abs_error": 0.008,
+        "delta_lags_minus_cum": 0.2799
+      },
+      {
+        "season": "2013-14",
+        "W": 12,
+        "true_ili": 4.145,
+        "lags_pred": 4.7386,
+        "cum_ili_pred": 4.6907,
+        "lags_abs_error": 0.5936,
+        "cum_ili_abs_error": 0.5457,
+        "delta_lags_minus_cum": 0.0479
+      },
+      {
+        "season": "2014-15",
+        "W": 12,
+        "true_ili": 5.455,
+        "lags_pred": 5.4936,
+        "cum_ili_pred": 5.0154,
+        "lags_abs_error": 0.0386,
+        "cum_ili_abs_error": 0.4396,
+        "delta_lags_minus_cum": -0.401
+      },
+      {
+        "season": "2015-16",
+        "W": 12,
+        "true_ili": 3.348,
+        "lags_pred": 4.3671,
+        "cum_ili_pred": 4.5793,
+        "lags_abs_error": 1.0191,
+        "cum_ili_abs_error": 1.2313,
+        "delta_lags_minus_cum": -0.2121
+      },
+      {
+        "season": "2016-17",
+        "W": 12,
+        "true_ili": 4.834,
+        "lags_pred": 4.4517,
+        "cum_ili_pred": 4.5472,
+        "lags_abs_error": 0.3823,
+        "cum_ili_abs_error": 0.2868,
+        "delta_lags_minus_cum": 0.0955
+      },
+      {
+        "season": "2017-18",
+        "W": 12,
+        "true_ili": 7.364,
+        "lags_pred": 5.2024,
+        "cum_ili_pred": 4.9782,
+        "lags_abs_error": 2.1616,
+        "cum_ili_abs_error": 2.3858,
+        "delta_lags_minus_cum": -0.2242
+      },
+      {
+        "season": "2018-19",
+        "W": 12,
+        "true_ili": 4.937,
+        "lags_pred": 4.7443,
+        "cum_ili_pred": 4.8931,
+        "lags_abs_error": 0.1927,
+        "cum_ili_abs_error": 0.0439,
+        "delta_lags_minus_cum": 0.1488
+      },
+      {
+        "season": "2019-20",
+        "W": 12,
+        "true_ili": 6.553,
+        "lags_pred": 5.7471,
+        "cum_ili_pred": 5.5739,
+        "lags_abs_error": 0.8059,
+        "cum_ili_abs_error": 0.9791,
+        "delta_lags_minus_cum": -0.1731
+      },
+      {
+        "season": "2021-22",
+        "W": 12,
+        "true_ili": 4.4,
+        "lags_pred": 5.2442,
+        "cum_ili_pred": 5.4612,
+        "lags_abs_error": 0.8442,
+        "cum_ili_abs_error": 1.0612,
+        "delta_lags_minus_cum": -0.2169
+      },
+      {
+        "season": "2022-23",
+        "W": 12,
+        "true_ili": 7.171,
+        "lags_pred": 8.3329,
+        "cum_ili_pred": 10.487,
+        "lags_abs_error": 1.1619,
+        "cum_ili_abs_error": 3.316,
+        "delta_lags_minus_cum": -2.1541
+      },
+      {
+        "season": "2023-24",
+        "W": 12,
+        "true_ili": 6.248,
+        "lags_pred": 6.64,
+        "cum_ili_pred": 6.7242,
+        "lags_abs_error": 0.392,
+        "cum_ili_abs_error": 0.4762,
+        "delta_lags_minus_cum": -0.0842
+      },
+      {
+        "season": "2024-25",
+        "W": 12,
+        "true_ili": 7.543,
+        "lags_pred": 5.7654,
+        "cum_ili_pred": 5.6373,
+        "lags_abs_error": 1.7776,
+        "cum_ili_abs_error": 1.9057,
+        "delta_lags_minus_cum": -0.1281
+      },
+      {
+        "season": "2003-04",
+        "W": 16,
+        "true_ili": 7.499,
+        "lags_pred": 4.7048,
+        "cum_ili_pred": 6.4393,
+        "lags_abs_error": 2.7942,
+        "cum_ili_abs_error": 1.0597,
+        "delta_lags_minus_cum": 1.7346
+      },
+      {
+        "season": "2004-05",
+        "W": 16,
+        "true_ili": 5.029,
+        "lags_pred": 4.1619,
+        "cum_ili_pred": 3.8584,
+        "lags_abs_error": 0.8671,
+        "cum_ili_abs_error": 1.1706,
+        "delta_lags_minus_cum": -0.3034
+      },
+      {
+        "season": "2005-06",
+        "W": 16,
+        "true_ili": 3.128,
+        "lags_pred": 4.4556,
+        "cum_ili_pred": 4.3272,
+        "lags_abs_error": 1.3276,
+        "cum_ili_abs_error": 1.1992,
+        "delta_lags_minus_cum": 0.1284
+      },
+      {
+        "season": "2006-07",
+        "W": 16,
+        "true_ili": 3.456,
+        "lags_pred": 4.2742,
+        "cum_ili_pred": 4.1784,
+        "lags_abs_error": 0.8182,
+        "cum_ili_abs_error": 0.7224,
+        "delta_lags_minus_cum": 0.0958
+      },
+      {
+        "season": "2007-08",
+        "W": 16,
+        "true_ili": 5.793,
+        "lags_pred": 3.893,
+        "cum_ili_pred": 3.744,
+        "lags_abs_error": 1.9,
+        "cum_ili_abs_error": 2.049,
+        "delta_lags_minus_cum": -0.1491
+      },
+      {
+        "season": "2010-11",
+        "W": 16,
+        "true_ili": 4.523,
+        "lags_pred": 4.5162,
+        "cum_ili_pred": 4.2914,
+        "lags_abs_error": 0.0068,
+        "cum_ili_abs_error": 0.2316,
+        "delta_lags_minus_cum": -0.2248
+      },
+      {
+        "season": "2011-12",
+        "W": 16,
+        "true_ili": 2.258,
+        "lags_pred": 3.9051,
+        "cum_ili_pred": 3.8567,
+        "lags_abs_error": 1.6471,
+        "cum_ili_abs_error": 1.5987,
+        "delta_lags_minus_cum": 0.0484
+      },
+      {
+        "season": "2012-13",
+        "W": 16,
+        "true_ili": 5.012,
+        "lags_pred": 6.4856,
+        "cum_ili_pred": 5.3587,
+        "lags_abs_error": 1.4736,
+        "cum_ili_abs_error": 0.3467,
+        "delta_lags_minus_cum": 1.1269
+      },
+      {
+        "season": "2013-14",
+        "W": 16,
+        "true_ili": 4.145,
+        "lags_pred": 5.3656,
+        "cum_ili_pred": 4.744,
+        "lags_abs_error": 1.2206,
+        "cum_ili_abs_error": 0.599,
+        "delta_lags_minus_cum": 0.6215
+      },
+      {
+        "season": "2014-15",
+        "W": 16,
+        "true_ili": 5.455,
+        "lags_pred": 5.9704,
+        "cum_ili_pred": 5.7707,
+        "lags_abs_error": 0.5154,
+        "cum_ili_abs_error": 0.3157,
+        "delta_lags_minus_cum": 0.1997
+      },
+      {
+        "season": "2015-16",
+        "W": 16,
+        "true_ili": 3.348,
+        "lags_pred": 3.9717,
+        "cum_ili_pred": 4.0175,
+        "lags_abs_error": 0.6237,
+        "cum_ili_abs_error": 0.6695,
+        "delta_lags_minus_cum": -0.0458
+      },
+      {
+        "season": "2016-17",
+        "W": 16,
+        "true_ili": 4.834,
+        "lags_pred": 4.6901,
+        "cum_ili_pred": 4.3672,
+        "lags_abs_error": 0.1439,
+        "cum_ili_abs_error": 0.4668,
+        "delta_lags_minus_cum": -0.3229
+      },
+      {
+        "season": "2017-18",
+        "W": 16,
+        "true_ili": 7.364,
+        "lags_pred": 5.6665,
+        "cum_ili_pred": 5.6814,
+        "lags_abs_error": 1.6975,
+        "cum_ili_abs_error": 1.6826,
+        "delta_lags_minus_cum": 0.0149
+      },
+      {
+        "season": "2018-19",
+        "W": 16,
+        "true_ili": 4.937,
+        "lags_pred": 4.9143,
+        "cum_ili_pred": 4.7587,
+        "lags_abs_error": 0.0227,
+        "cum_ili_abs_error": 0.1783,
+        "delta_lags_minus_cum": -0.1556
+      },
+      {
+        "season": "2019-20",
+        "W": 16,
+        "true_ili": 6.553,
+        "lags_pred": 7.5754,
+        "cum_ili_pred": 6.1961,
+        "lags_abs_error": 1.0224,
+        "cum_ili_abs_error": 0.3569,
+        "delta_lags_minus_cum": 0.6654
+      },
+      {
+        "season": "2021-22",
+        "W": 16,
+        "true_ili": 4.4,
+        "lags_pred": 5.3728,
+        "cum_ili_pred": 5.4275,
+        "lags_abs_error": 0.9728,
+        "cum_ili_abs_error": 1.0275,
+        "delta_lags_minus_cum": -0.0547
+      },
+      {
+        "season": "2022-23",
+        "W": 16,
+        "true_ili": 7.171,
+        "lags_pred": 5.1044,
+        "cum_ili_pred": 8.7343,
+        "lags_abs_error": 2.0666,
+        "cum_ili_abs_error": 1.5633,
+        "delta_lags_minus_cum": 0.5033
+      },
+      {
+        "season": "2023-24",
+        "W": 16,
+        "true_ili": 6.248,
+        "lags_pred": 6.5039,
+        "cum_ili_pred": 7.1777,
+        "lags_abs_error": 0.2559,
+        "cum_ili_abs_error": 0.9297,
+        "delta_lags_minus_cum": -0.6737
+      },
+      {
+        "season": "2024-25",
+        "W": 16,
+        "true_ili": 7.543,
+        "lags_pred": 6.6416,
+        "cum_ili_pred": 6.2853,
+        "lags_abs_error": 0.9014,
+        "cum_ili_abs_error": 1.2577,
+        "delta_lags_minus_cum": -0.3562
+      }
+    ],
+    "multiple_comparison_caveat": "three W values inspected; descriptive, never confirmation"
+  },
+  "special_cases_panel_A": {
+    "analysis_type": "excluded-from-training structural-break stress test, not prospective",
+    "records": [
+      {
+        "season": "2008-09",
+        "mechanism": "pandemic-adjacent: spring 2009 H1N1 emergence wave",
+        "W": 8,
+        "model": "Panel A ridge",
+        "selected_lambda": 0.1,
+        "true_ili": 4.456,
+        "pred_ili": 4.033,
+        "error": -0.423,
+        "abs_error": 0.423,
+        "label": "excluded-from-training structural-break stress test, not prospective"
+      },
+      {
+        "season": "2009-10",
+        "mechanism": "2009 H1N1 pandemic season",
+        "W": 8,
+        "model": "Panel A ridge",
+        "selected_lambda": 0.1,
+        "true_ili": 7.454,
+        "pred_ili": -3.8046,
+        "error": -11.2586,
+        "abs_error": 11.2586,
+        "label": "excluded-from-training structural-break stress test, not prospective"
+      },
+      {
+        "season": "2020-21",
+        "mechanism": "near-total flu absence under COVID NPIs",
+        "W": 8,
+        "model": "Panel A ridge",
+        "selected_lambda": 0.1,
+        "true_ili": 2.239,
+        "pred_ili": 4.4175,
+        "error": 2.1785,
+        "abs_error": 2.1785,
+        "label": "excluded-from-training structural-break stress test, not prospective"
+      },
+      {
+        "season": "2008-09",
+        "mechanism": "pandemic-adjacent: spring 2009 H1N1 emergence wave",
+        "W": 12,
+        "model": "Panel A ridge",
+        "selected_lambda": 100.0,
+        "true_ili": 4.456,
+        "pred_ili": 4.4933,
+        "error": 0.0373,
+        "abs_error": 0.0373,
+        "label": "excluded-from-training structural-break stress test, not prospective"
+      },
+      {
+        "season": "2009-10",
+        "mechanism": "2009 H1N1 pandemic season",
+        "W": 12,
+        "model": "Panel A ridge",
+        "selected_lambda": 100.0,
+        "true_ili": 7.454,
+        "pred_ili": 5.2557,
+        "error": -2.1983,
+        "abs_error": 2.1983,
+        "label": "excluded-from-training structural-break stress test, not prospective"
+      },
+      {
+        "season": "2020-21",
+        "mechanism": "near-total flu absence under COVID NPIs",
+        "W": 12,
+        "model": "Panel A ridge",
+        "selected_lambda": 100.0,
+        "true_ili": 2.239,
+        "pred_ili": 4.5084,
+        "error": 2.2694,
+        "abs_error": 2.2694,
+        "label": "excluded-from-training structural-break stress test, not prospective"
+      },
+      {
+        "season": "2008-09",
+        "mechanism": "pandemic-adjacent: spring 2009 H1N1 emergence wave",
+        "W": 16,
+        "model": "Panel A ridge",
+        "selected_lambda": 1.0,
+        "true_ili": 4.456,
+        "pred_ili": 3.4113,
+        "error": -1.0447,
+        "abs_error": 1.0447,
+        "label": "excluded-from-training structural-break stress test, not prospective"
+      },
+      {
+        "season": "2009-10",
+        "mechanism": "2009 H1N1 pandemic season",
+        "W": 16,
+        "model": "Panel A ridge",
+        "selected_lambda": 1.0,
+        "true_ili": 7.454,
+        "pred_ili": 6.0277,
+        "error": -1.4263,
+        "abs_error": 1.4263,
+        "label": "excluded-from-training structural-break stress test, not prospective"
+      },
+      {
+        "season": "2020-21",
+        "mechanism": "near-total flu absence under COVID NPIs",
+        "W": 16,
+        "model": "Panel A ridge",
+        "selected_lambda": 1.0,
+        "true_ili": 2.239,
+        "pred_ili": 2.6721,
+        "error": 0.4331,
+        "abs_error": 0.4331,
+        "label": "excluded-from-training structural-break stress test, not prospective"
+      }
+    ]
+  },
+  "firewall": {
+    "index_firewall": "PASS across 66 (season,W) pairs; every feature index <= W",
+    "reporting_availability": "not guaranteed for FluSurv-NET, NREVSS, or FluVaxView"
+  },
+  "imputation": "column-wise train means recomputed inside every inner-CV split; deliberate divergence from notebook 06",
+  "template_deviations": {
+    "season_week": "zero variance as a season-level predictor at fixed W; retained as within-season time axis sw",
+    "ARIMA_intervals": "not implemented; D1 and interval coverage are Prophet-only"
+  }
+}

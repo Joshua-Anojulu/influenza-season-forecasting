@@ -2,10 +2,12 @@
 
 Forecasting the timing and severity of US influenza season peaks from public CDC surveillance data.
 
-> **Status:** Analysis pipeline complete (notebooks 01-06). Results below are **preliminary and
-> descriptive**: the sample is small (19 modeled seasons). The advisor confirmed the
-> characterization-first framing, national-only scope, and the added regression/curve models on
-> 2026-07-08; a couple of secondary decisions remain open. Nothing here is a final claim.
+> **Status:** Analysis pipeline executed through notebook 07. Results below are **preliminary and
+> descriptive**: the sample is small (19 modeled seasons). Notebooks 01-06 remain committed; the
+> current notebook-05 extension, notebook-06 coefficient persistence, notebook 07, and their new
+> artifacts are uncommitted pending Joshua's review. The advisor confirmed the characterization-first
+> framing, national-only scope, and regression/curve models on 2026-07-08. Option B versus Option A
+> and the decision week to headline remain open. Nothing here is a final claim.
 
 ## Overview
 
@@ -52,14 +54,24 @@ is not used for subtype.
   baseline at the same W, never to a cross-sectional floor).
 - **Forecasting (05):** ARIMA and Prophet, fit within-season on data through W only (strict leakage
   firewall, audited per fit), forecasting the remaining weeks. Prophet's 80% prediction interval is
-  used for a calibration analysis.
+  used for a calibration analysis. Per-fit trajectories are persisted in a sidecar that does not
+  alter the protected audit records. The three excluded seasons are scored separately as labeled
+  structural-break stress tests, not prospective forecasts, and D1 shows six Prophet overlays at W=12.
 - **Regression and curve models (06):** three models under the identical firewall, all features
   computed strictly through W. (1) A univariate real-time severity forecast from cumulative-ILI-
   through-W. (2) A retrospective explanatory ridge (cumulative ILI + dominant strain + vaccine
   coverage) testing whether strain/vaccine carry severity signal; labeled explanatory because strain
   is reporting-lagged and vaccine coverage is a revised survey estimate. (3) A symmetric Gaussian
   curve fit for both peak height and peak week. A Random Forest severity classifier remains **not
-  implemented** and is superseded by these models.
+  implemented** and is superseded by these models. The standardized ridge coefficients are persisted
+  in the summary JSON.
+- **Template features and H1 (07):** adds `ili_lag_1..4`, `ili_rolling4`, and
+  `hosp_rate_lag1`; tests H1 with paired per-season error deltas, exact sign tests, and bootstrap
+  intervals; and builds D3 from grouped block ablations plus directional standardized coefficients.
+  Panel A has 9 model columns on 19 seasons. Panel B has 11 columns on 14 seasons and is explicitly
+  high-variance descriptive analysis. Both panels are an **Option B assumption pending advisor
+  decision**. Hospitalization, strain, and vaccine models are retrospective because an index cutoff
+  does not establish reporting availability.
 - **Validation:** LOSO over the same season set throughout. Of 22 complete seasons (2003-04 to
   2024-25), **19 are modeled** after holding out 2009-10 and 2020-21 (pandemic) and 2008-09
   (pandemic-adjacent, the 2009 H1N1 emergence) as labeled special cases.
@@ -109,6 +121,16 @@ forecast region, and no suspected leak). Full tables: `results/`.
   sample size. A symmetric Gaussian curve fit does not beat the floor on either target: fit to a
   usually rising-limb segment its amplitude pins to the historical-max ceiling, the same overshoot
   pathology as ARIMA/Prophet.
+- **H1 is not descriptively supported (07).** The lags-only model has MAE 1.125 / 1.189 / 1.067 at
+  W=8 / 12 / 16 versus 1.256 / 1.124 / 0.917 for cumulative ILI. It improves at W=8 but loses at
+  W=12 and W=16. All three paired bootstrap intervals include zero, and the exact sign tests split
+  10-9 or 9-10 by season. This does not establish the template's claim that recent four-week ILI is
+  the strongest predictor.
+- **The two feature panels are descriptive, not rankings (07).** Panel A MAE is 1.195 / 1.075 / 1.175
+  at W=8 / 12 / 16. Panel B MAE is 1.268 / 0.906 / 0.577 on only 14 seasons and 11 columns, so its
+  lower W=12 and W=16 errors cannot support a feature-importance claim. D3 uses grouped block
+  ablations because `ili_rolling4` is exactly determined by the four lag columns. The excluded
+  seasons are reported separately under Panel A as structural-break stress tests, never pooled.
 
 These are honest negative point-forecast results plus two affirmative contributions (the calibration
 finding and the univariate severity forecast), not a claim that peak forecasting is solved or
@@ -131,9 +153,10 @@ model, which is future work.
 │   ├── 03_eda.ipynb              # trajectories, distributions, missingness map
 │   ├── 04_baselines.ipynb        # naive floors, lead-time-matched
 │   ├── 05_forecasting.ipynb      # ARIMA / Prophet under the leakage firewall
-│   └── 06_regression_and_curve.ipynb  # univariate + explanatory ridge + Gaussian curve
+│   ├── 06_regression_and_curve.ipynb  # univariate + explanatory ridge + Gaussian curve
+│   └── 07_features_and_hypothesis.ipynb  # template features + H1 + grouped ablations
 ├── data/raw/             # gitignored; CDC source CSVs
-├── figures/              # generated EDA + calibration figures
+├── figures/              # generated EDA, calibration, D1, and D3 figures
 ├── results/              # baseline + forecasting summaries (markdown + JSON)
 ├── slides/               # findings deck (PowerPoint / Google Slides)
 ├── docs/                 # design spec + implementation plan
@@ -164,12 +187,17 @@ Pandemic seasons introduce structural breaks and are held out as labeled special
 constraints limit how strong any honest result can be, and are addressed explicitly in the analysis
 rather than worked around. Honest negative results are reported as such.
 
+Two template deviations are explicit. `season_week` is not usable as a season-level predictor at a
+fixed W because it equals W for every season and has zero variance; it remains the within-season time
+axis `sw`. ARIMA produces no prediction intervals in this implementation, so D1 and interval coverage
+are Prophet-only.
+
 ## Reproducing
 
 ```
 pip install -r requirements.txt
 # place the CDC source CSVs in data/raw/ (see notebook 01 for filenames and loading quirks)
-# run notebooks 01 -> 06 in order
+# run notebooks 01 -> 07 in order
 ```
 
 ## Background
