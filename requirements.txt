@@ -13,6 +13,9 @@ prophet==1.3.0
 # regression + curve models (notebook 06); scipy.optimize.curve_fit
 scipy==1.17.1
 
+# severity tiers + classifier (notebook 08); RandomForestClassifier, f1_score, confusion_matrix
+scikit-learn==1.9.0
+
 # notebook execution (01-06 are run via nbconvert)
 nbformat==5.10.4
 nbconvert==7.17.1

@@ -1,0 +1,1008 @@
+{
+  "status": "preliminary; underpowered by design and reported as such",
+  "target": "tier_max on the 19-season modeling set",
+  "classes": [
+    "Low",
+    "Moderate",
+    "High"
+  ],
+  "class_counts": {
+    "Low": 4,
+    "Moderate": 9,
+    "High": 6
+  },
+  "sample_size_caveat": "n=19 with 3 classes and 6 feature columns. The Low class has 4 members, so some LOSO folds train on 3 examples of it. Overfitting is expected.",
+  "rf_params": {
+    "random_state": 42,
+    "n_estimators": 500,
+    "min_samples_leaf": 2,
+    "max_depth": null,
+    "class_weight": "balanced",
+    "max_features": "sqrt"
+  },
+  "pre_registered": "hyperparameters, seed and scoring rule fixed before any result was seen; no post-hoc tuning was performed",
+  "scoring": "each LOSO fold predicts one held-out season; predictions pooled over all 19 folds and macro-F1 computed once over the pool. A per-fold average is undefined at n=1.",
+  "macro_f1_status": "descriptive only, pre-registered as such; read the confusion matrix first",
+  "primary_realtime": {
+    "8": {
+      "W": 8,
+      "n": 19,
+      "class_counts": {
+        "Low": 4,
+        "Moderate": 9,
+        "High": 6
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Low",
+          "Moderate",
+          "High"
+        ],
+        "rows_true_cols_pred": [
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            4,
+            2
+          ],
+          [
+            0,
+            1,
+            5
+          ]
+        ]
+      },
+      "per_class_f1": {
+        "Low": 0.6,
+        "Moderate": 0.5333,
+        "High": 0.7692
+      },
+      "accuracy": 0.6316,
+      "macro_f1": {
+        "RF": 0.6342,
+        "B0_majority": 0.2143,
+        "B1_stratified_random_mean": 0.2907,
+        "B2_climatology_threshold": 0.2143,
+        "B3_regression_then_threshold": 0.326
+      },
+      "rf_macro_f1_bootstrap_95ci": [
+        0.3853,
+        0.8342
+      ],
+      "paired_rf_minus_b3": {
+        "observed": 0.3082,
+        "ci95": [
+          0.0032,
+          0.577
+        ],
+        "includes_zero": false,
+        "p_diff_gt_0": 0.9762
+      },
+      "predictions": {
+        "2003-04": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2004-05": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2005-06": {
+          "true": "Low",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2006-07": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2007-08": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2010-11": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2011-12": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2012-13": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2013-14": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2014-15": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2015-16": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2016-17": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2017-18": {
+          "true": "High",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2018-19": {
+          "true": "Moderate",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2019-20": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2021-22": {
+          "true": "Moderate",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2022-23": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Very High"
+        },
+        "2023-24": {
+          "true": "High",
+          "RF": "High",
+          "B3": "High"
+        },
+        "2024-25": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        }
+      }
+    },
+    "12": {
+      "W": 12,
+      "n": 19,
+      "class_counts": {
+        "Low": 4,
+        "Moderate": 9,
+        "High": 6
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Low",
+          "Moderate",
+          "High"
+        ],
+        "rows_true_cols_pred": [
+          [
+            1,
+            3,
+            0
+          ],
+          [
+            4,
+            3,
+            2
+          ],
+          [
+            0,
+            1,
+            5
+          ]
+        ]
+      },
+      "per_class_f1": {
+        "Low": 0.2222,
+        "Moderate": 0.375,
+        "High": 0.7692
+      },
+      "accuracy": 0.4737,
+      "macro_f1": {
+        "RF": 0.4555,
+        "B0_majority": 0.2143,
+        "B1_stratified_random_mean": 0.2907,
+        "B2_climatology_threshold": 0.2143,
+        "B3_regression_then_threshold": 0.326
+      },
+      "rf_macro_f1_bootstrap_95ci": [
+        0.2481,
+        0.6472
+      ],
+      "paired_rf_minus_b3": {
+        "observed": 0.1295,
+        "ci95": [
+          -0.1341,
+          0.3843
+        ],
+        "includes_zero": true,
+        "p_diff_gt_0": 0.8243
+      },
+      "predictions": {
+        "2003-04": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2004-05": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2005-06": {
+          "true": "Low",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2006-07": {
+          "true": "Low",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2007-08": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2010-11": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2011-12": {
+          "true": "Low",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2012-13": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2013-14": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2014-15": {
+          "true": "Moderate",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2015-16": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2016-17": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2017-18": {
+          "true": "High",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2018-19": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2019-20": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2021-22": {
+          "true": "Moderate",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2022-23": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Very High"
+        },
+        "2023-24": {
+          "true": "High",
+          "RF": "High",
+          "B3": "High"
+        },
+        "2024-25": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        }
+      }
+    },
+    "16": {
+      "W": 16,
+      "n": 19,
+      "class_counts": {
+        "Low": 4,
+        "Moderate": 9,
+        "High": 6
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Low",
+          "Moderate",
+          "High"
+        ],
+        "rows_true_cols_pred": [
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            2,
+            6,
+            1
+          ],
+          [
+            1,
+            1,
+            4
+          ]
+        ]
+      },
+      "per_class_f1": {
+        "Low": 0.6,
+        "Moderate": 0.7059,
+        "High": 0.7273
+      },
+      "accuracy": 0.6842,
+      "macro_f1": {
+        "RF": 0.6777,
+        "B0_majority": 0.2143,
+        "B1_stratified_random_mean": 0.2907,
+        "B2_climatology_threshold": 0.2143,
+        "B3_regression_then_threshold": 0.6222
+      },
+      "rf_macro_f1_bootstrap_95ci": [
+        0.4167,
+        0.8793
+      ],
+      "paired_rf_minus_b3": {
+        "observed": 0.0555,
+        "ci95": [
+          -0.2063,
+          0.336
+        ],
+        "includes_zero": true,
+        "p_diff_gt_0": 0.6672
+      },
+      "predictions": {
+        "2003-04": {
+          "true": "High",
+          "RF": "Low",
+          "B3": "High"
+        },
+        "2004-05": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Low"
+        },
+        "2005-06": {
+          "true": "Low",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2006-07": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2007-08": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Low"
+        },
+        "2010-11": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2011-12": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Low"
+        },
+        "2012-13": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2013-14": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2014-15": {
+          "true": "Moderate",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2015-16": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Low"
+        },
+        "2016-17": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2017-18": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2018-19": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2019-20": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2021-22": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2022-23": {
+          "true": "High",
+          "RF": "Moderate",
+          "B3": "Very High"
+        },
+        "2023-24": {
+          "true": "High",
+          "RF": "High",
+          "B3": "High"
+        },
+        "2024-25": {
+          "true": "High",
+          "RF": "High",
+          "B3": "High"
+        }
+      }
+    }
+  },
+  "secondary_retrospective": {
+    "8": {
+      "W": 8,
+      "n": 19,
+      "class_counts": {
+        "Low": 4,
+        "Moderate": 9,
+        "High": 6
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Low",
+          "Moderate",
+          "High"
+        ],
+        "rows_true_cols_pred": [
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            4,
+            2
+          ],
+          [
+            0,
+            1,
+            5
+          ]
+        ]
+      },
+      "per_class_f1": {
+        "Low": 0.6,
+        "Moderate": 0.5333,
+        "High": 0.7692
+      },
+      "accuracy": 0.6316,
+      "macro_f1": {
+        "RF": 0.6342,
+        "B0_majority": 0.2143,
+        "B1_stratified_random_mean": 0.2907,
+        "B2_climatology_threshold": 0.2143,
+        "B3_regression_then_threshold": 0.326
+      },
+      "rf_macro_f1_bootstrap_95ci": [
+        0.3853,
+        0.8342
+      ],
+      "paired_rf_minus_b3": {
+        "observed": 0.3082,
+        "ci95": [
+          0.0032,
+          0.577
+        ],
+        "includes_zero": false,
+        "p_diff_gt_0": 0.9762
+      },
+      "predictions": {
+        "2003-04": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2004-05": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2005-06": {
+          "true": "Low",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2006-07": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2007-08": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2010-11": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2011-12": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2012-13": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2013-14": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2014-15": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2015-16": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2016-17": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2017-18": {
+          "true": "High",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2018-19": {
+          "true": "Moderate",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2019-20": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2021-22": {
+          "true": "Moderate",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2022-23": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Very High"
+        },
+        "2023-24": {
+          "true": "High",
+          "RF": "High",
+          "B3": "High"
+        },
+        "2024-25": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        }
+      }
+    },
+    "12": {
+      "W": 12,
+      "n": 19,
+      "class_counts": {
+        "Low": 4,
+        "Moderate": 9,
+        "High": 6
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Low",
+          "Moderate",
+          "High"
+        ],
+        "rows_true_cols_pred": [
+          [
+            2,
+            2,
+            0
+          ],
+          [
+            4,
+            3,
+            2
+          ],
+          [
+            0,
+            1,
+            5
+          ]
+        ]
+      },
+      "per_class_f1": {
+        "Low": 0.4,
+        "Moderate": 0.4,
+        "High": 0.7692
+      },
+      "accuracy": 0.5263,
+      "macro_f1": {
+        "RF": 0.5231,
+        "B0_majority": 0.2143,
+        "B1_stratified_random_mean": 0.2907,
+        "B2_climatology_threshold": 0.2143,
+        "B3_regression_then_threshold": 0.326
+      },
+      "rf_macro_f1_bootstrap_95ci": [
+        0.2889,
+        0.7242
+      ],
+      "paired_rf_minus_b3": {
+        "observed": 0.1971,
+        "ci95": [
+          -0.093,
+          0.4673
+        ],
+        "includes_zero": true,
+        "p_diff_gt_0": 0.9062
+      },
+      "predictions": {
+        "2003-04": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2004-05": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2005-06": {
+          "true": "Low",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2006-07": {
+          "true": "Low",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2007-08": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2010-11": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2011-12": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2012-13": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2013-14": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2014-15": {
+          "true": "Moderate",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2015-16": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2016-17": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2017-18": {
+          "true": "High",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2018-19": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2019-20": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2021-22": {
+          "true": "Moderate",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2022-23": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Very High"
+        },
+        "2023-24": {
+          "true": "High",
+          "RF": "High",
+          "B3": "High"
+        },
+        "2024-25": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        }
+      }
+    },
+    "16": {
+      "W": 16,
+      "n": 19,
+      "class_counts": {
+        "Low": 4,
+        "Moderate": 9,
+        "High": 6
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Low",
+          "Moderate",
+          "High"
+        ],
+        "rows_true_cols_pred": [
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            2,
+            6,
+            1
+          ],
+          [
+            1,
+            1,
+            4
+          ]
+        ]
+      },
+      "per_class_f1": {
+        "Low": 0.6,
+        "Moderate": 0.7059,
+        "High": 0.7273
+      },
+      "accuracy": 0.6842,
+      "macro_f1": {
+        "RF": 0.6777,
+        "B0_majority": 0.2143,
+        "B1_stratified_random_mean": 0.2907,
+        "B2_climatology_threshold": 0.2143,
+        "B3_regression_then_threshold": 0.6222
+      },
+      "rf_macro_f1_bootstrap_95ci": [
+        0.4167,
+        0.8793
+      ],
+      "paired_rf_minus_b3": {
+        "observed": 0.0555,
+        "ci95": [
+          -0.2063,
+          0.336
+        ],
+        "includes_zero": true,
+        "p_diff_gt_0": 0.6672
+      },
+      "predictions": {
+        "2003-04": {
+          "true": "High",
+          "RF": "Low",
+          "B3": "High"
+        },
+        "2004-05": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Low"
+        },
+        "2005-06": {
+          "true": "Low",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2006-07": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Moderate"
+        },
+        "2007-08": {
+          "true": "Moderate",
+          "RF": "Low",
+          "B3": "Low"
+        },
+        "2010-11": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2011-12": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Low"
+        },
+        "2012-13": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2013-14": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2014-15": {
+          "true": "Moderate",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2015-16": {
+          "true": "Low",
+          "RF": "Low",
+          "B3": "Low"
+        },
+        "2016-17": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2017-18": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2018-19": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2019-20": {
+          "true": "High",
+          "RF": "High",
+          "B3": "Moderate"
+        },
+        "2021-22": {
+          "true": "Moderate",
+          "RF": "Moderate",
+          "B3": "Moderate"
+        },
+        "2022-23": {
+          "true": "High",
+          "RF": "Moderate",
+          "B3": "Very High"
+        },
+        "2023-24": {
+          "true": "High",
+          "RF": "High",
+          "B3": "High"
+        },
+        "2024-25": {
+          "true": "High",
+          "RF": "High",
+          "B3": "High"
+        }
+      }
+    }
+  },
+  "feature_sets": {
+    "primary": [
+      "cum_ili",
+      "ili_lag_1",
+      "ili_lag_2",
+      "ili_lag_3",
+      "ili_lag_4",
+      "ili_rolling4",
+      "(near-real-time under the index-cutoff convention)"
+    ],
+    "secondary": [
+      "cum_ili",
+      "ili_lag_1",
+      "ili_lag_2",
+      "ili_lag_3",
+      "ili_lag_4",
+      "ili_rolling4",
+      "dominant_strain (reporting-lagged, retrospective)"
+    ]
+  },
+  "firewall": {
+    "index_firewall": "PASS across 66 (season,W) pairs; every feature index <= W",
+    "label_note": "the LABEL derives from the full-season peak by design, as in 05 and 06 where the target is also the realized season peak; the firewall governs features, not the target"
+  },
+  "d2": {
+    "built": false,
+    "reason": "ILINet_regional.csv not present in data/raw/; Step 0 of the plan is a manual FluView download with region type 'HHS Regions'. D2 is blocked, not skipped, and nothing about regional severity is asserted here."
+  },
+  "conclusion": {
+    "verdict": "No demonstrated advantage over B3, the regression-then-threshold baseline.",
+    "reasoning": [
+      "Paired bootstrap intervals for RF minus B3 include zero at W=12 ([-0.1341, 0.3843]) and W=16 ([-0.2063, 0.336]). Only W=8 excludes zero, and only marginally (+0.003 lower bound).",
+      "The pattern runs backwards. The apparent advantage is largest at W=8, the earliest and least informative decision week, and shrinks to +0.06 by W=16. A real skill advantage should not decay as more of the season becomes observable.",
+      "Macro-F1 is itself non-monotonic in W (RF 0.6342 at W=8 versus 0.4555 at W=12). More information making the model worse is a noise signature, not a skill signature.",
+      "Three W values were inspected. One marginal exclusion out of three comparisons is what chance produces; it is descriptive, never confirmation."
+    ],
+    "w_intervals_excluding_zero": [
+      8
+    ],
+    "multiple_comparison_caveat": "three W values inspected; descriptive, never confirmation",
+    "consistent_with": "notebook 05's negative point-forecast result and notebook 07's unsupported H1. The classifier is reported as a negative, per the pre-commitment in PLAN-severity-tiers.md Step 5."
+  }
+}

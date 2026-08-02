@@ -2,12 +2,14 @@
 
 Forecasting the timing and severity of US influenza season peaks from public CDC surveillance data.
 
-> **Status:** Analysis pipeline executed through notebook 07. Results below are **preliminary and
-> descriptive**: the sample is small (19 modeled seasons). Notebooks 01-06 remain committed; the
-> current notebook-05 extension, notebook-06 coefficient persistence, notebook 07, and their new
-> artifacts are uncommitted pending Joshua's review. The advisor confirmed the characterization-first
-> framing, national-only scope, and regression/curve models on 2026-07-08. Option B versus Option A
-> and the decision week to headline remain open. Nothing here is a final claim.
+> **Status:** Analysis pipeline executed through notebook 08. Results below are **preliminary and
+> descriptive**: the sample is small (19 modeled seasons). Notebooks 01-07 and their artifacts are
+> committed and pushed; notebook 08 and its `results/08_*` artifacts are committed locally and not
+> yet pushed. The advisor confirmed the characterization-first framing, national-only scope, and
+> regression/curve models on 2026-07-08, and confirmed Option B (2003+ core, 2009+ enrichment), the
+> CDC-anchored severity tiers, and the regional-ILI-for-the-heatmap-only scope on 2026-08-02. The
+> decision week to headline remains the one open decision. D2, the regional severity heatmap, is not
+> yet built. Nothing here is a final claim.
 
 ## Overview
 
@@ -62,16 +64,26 @@ is not used for subtype.
   through-W. (2) A retrospective explanatory ridge (cumulative ILI + dominant strain + vaccine
   coverage) testing whether strain/vaccine carry severity signal; labeled explanatory because strain
   is reporting-lagged and vaccine coverage is a revised survey estimate. (3) A symmetric Gaussian
-  curve fit for both peak height and peak week. A Random Forest severity classifier remains **not
-  implemented** and is superseded by these models. The standardized ridge coefficients are persisted
-  in the summary JSON.
+  curve fit for both peak height and peak week. The standardized ridge coefficients are persisted
+  in the summary JSON. (The Random Forest severity classifier moved to notebook 08 and is now built.)
 - **Template features and H1 (07):** adds `ili_lag_1..4`, `ili_rolling4`, and
   `hosp_rate_lag1`; tests H1 with paired per-season error deltas, exact sign tests, and bootstrap
   intervals; and builds D3 from grouped block ablations plus directional standardized coefficients.
   Panel A has 9 model columns on 19 seasons. Panel B has 11 columns on 14 seasons and is explicitly
-  high-variance descriptive analysis. Both panels are an **Option B assumption pending advisor
-  decision**. Hospitalization, strain, and vaccine models are retrospective because an index cutoff
-  does not establish reporting availability.
+  high-variance descriptive analysis. Both panels rest on **Option B, which the advisor confirmed on
+  2026-08-02** (2003+ core with 2009+ enrichment where it exists), so they are no longer provisional.
+  Hospitalization, strain, and vaccine models are retrospective because an index cutoff does not
+  establish reporting availability.
+- **Severity tiers and classification (08):** defines season severity tiers anchored to CDC's
+  published ILI intensity thresholds (IT50 4.4, IT90 6.6, IT98 8.6; Biggerstaff et al., Am J
+  Epidemiol 2018, doi:10.1093/aje/kwx334), applied to the season's peak weekly raw `% WEIGHTED ILI`.
+  This is an **ILI-only approximation** of CDC's framework, not CDC's official season classification,
+  which is a 2-of-3 indicator vote requiring hospitalization and mortality data this project does not
+  have. It reproduces CDC's published classifications on **9 of 12** seasons overall and 9 of 10
+  among comparable seasons. No season in 22 reaches IT98, so the classifier is 3-class. The Random
+  Forest classifier is a **negative result**: it shows no demonstrated advantage over thresholding
+  the univariate regression, with paired bootstrap intervals including zero at W=12 and W=16. D2, the
+  regional severity heatmap, is **not yet built** and is blocked on a regional ILINet download.
 - **Validation:** LOSO over the same season set throughout. Of 22 complete seasons (2003-04 to
   2024-25), **19 are modeled** after holding out 2009-10 and 2020-21 (pandemic) and 2008-09
   (pandemic-adjacent, the 2009 H1N1 emergence) as labeled special cases.
@@ -154,7 +166,8 @@ model, which is future work.
 │   ├── 04_baselines.ipynb        # naive floors, lead-time-matched
 │   ├── 05_forecasting.ipynb      # ARIMA / Prophet under the leakage firewall
 │   ├── 06_regression_and_curve.ipynb  # univariate + explanatory ridge + Gaussian curve
-│   └── 07_features_and_hypothesis.ipynb  # template features + H1 + grouped ablations
+│   ├── 07_features_and_hypothesis.ipynb  # template features + H1 + grouped ablations
+│   └── 08_severity_tiers.ipynb           # CDC-anchored severity tiers + 3-class classifier
 ├── data/raw/             # gitignored; CDC source CSVs
 ├── figures/              # generated EDA, calibration, D1, and D3 figures
 ├── results/              # baseline + forecasting summaries (markdown + JSON)
