@@ -4,8 +4,7 @@ Forecasting the timing and severity of US influenza season peaks from public CDC
 
 > **Status:** Analysis pipeline executed through notebook 08. Results below are **preliminary and
 > descriptive**: the sample is small (19 modeled seasons). Notebooks 01-07 and their artifacts are
-> committed and pushed; notebook 08 and its `results/08_*` artifacts are committed locally and not
-> yet pushed. The advisor confirmed the characterization-first framing, national-only scope, and
+> committed and pushed, as are notebook 08 and its `results/08_*` artifacts (`e71f5cb`). The advisor confirmed the characterization-first framing, national-only scope, and
 > regression/curve models on 2026-07-08, and confirmed Option B (2003+ core, 2009+ enrichment), the
 > CDC-anchored severity tiers, and the regional-ILI-for-the-heatmap-only scope on 2026-08-02. The
 > decision week to headline remains the one open decision. Nothing here is a final claim.
