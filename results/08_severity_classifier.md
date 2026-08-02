@@ -67,4 +67,4 @@ the LABEL derives from the full-season peak by design, as in 05 and 06 where the
 
 ## D2
 
-NOT BUILT. ILINet_regional.csv not present in data/raw/; Step 0 of the plan is a manual FluView download with region type 'HHS Regions'. D2 is blocked, not skipped, and nothing about regional severity is asserted here.
+Built.

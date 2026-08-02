@@ -988,8 +988,8 @@
     "label_note": "the LABEL derives from the full-season peak by design, as in 05 and 06 where the target is also the realized season peak; the firewall governs features, not the target"
   },
   "d2": {
-    "built": false,
-    "reason": "ILINet_regional.csv not present in data/raw/; Step 0 of the plan is a manual FluView download with region type 'HHS Regions'. D2 is blocked, not skipped, and nothing about regional severity is asserted here."
+    "built": true,
+    "regions": 10
   },
   "conclusion": {
     "verdict": "No demonstrated advantage over B3, the regression-then-threshold baseline.",

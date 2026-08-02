@@ -1,0 +1,1202 @@
+{
+  "status": "descriptive figure input only; regional data never enters any model",
+  "advisor_ruling": "Dr. Mitra, 2026-08-02: pull regional ILI for the heatmap only, keep the models national",
+  "figure": "figures/12_D2_severity_heatmap.png",
+  "encoding": "continuous colour scale on regional season peak % WEIGHTED ILI. National IT50/IT90/IT98 appear as colorbar reference ticks ONLY. Cells are not coloured by, or labelled with, a regional tier.",
+  "why_not_tiered": "CDC publishes no region-specific intensity thresholds. Regional ILI has region-specific baselines, so calling a region-season 'High' off a national threshold would be a label the thresholds do not license.",
+  "excluded_seasons_marked": [
+    "2008-09",
+    "2009-10",
+    "2020-21"
+  ],
+  "not_assessed": {
+    "2020-21": "CDC did not assign a severity classification; minimal influenza activity under COVID-19 mitigations"
+  },
+  "national_threshold_exceedance_diagnostic": {
+    "caveat": "DIAGNOSTIC ONLY, never a definition. Counts how often each region's season peak exceeds each NATIONAL threshold, to quantify the regional-baseline mismatch that is the reason this figure is not tiered.",
+    "rows": [
+      {
+        "region": "Region 1",
+        "median_peak": 3.896,
+        "n_above_IT50": 7,
+        "n_above_IT90": 5,
+        "n_above_IT98": 2,
+        "n_seasons": 21
+      },
+      {
+        "region": "Region 2",
+        "median_peak": 5.51,
+        "n_above_IT50": 14,
+        "n_above_IT90": 8,
+        "n_above_IT98": 4,
+        "n_seasons": 21
+      },
+      {
+        "region": "Region 3",
+        "median_peak": 5.642,
+        "n_above_IT50": 17,
+        "n_above_IT90": 8,
+        "n_above_IT98": 2,
+        "n_seasons": 21
+      },
+      {
+        "region": "Region 4",
+        "median_peak": 6.032,
+        "n_above_IT50": 16,
+        "n_above_IT90": 8,
+        "n_above_IT98": 4,
+        "n_seasons": 21
+      },
+      {
+        "region": "Region 5",
+        "median_peak": 4.639,
+        "n_above_IT50": 11,
+        "n_above_IT90": 4,
+        "n_above_IT98": 2,
+        "n_seasons": 21
+      },
+      {
+        "region": "Region 6",
+        "median_peak": 9.455,
+        "n_above_IT50": 20,
+        "n_above_IT90": 17,
+        "n_above_IT98": 14,
+        "n_seasons": 21
+      },
+      {
+        "region": "Region 7",
+        "median_peak": 5.705,
+        "n_above_IT50": 15,
+        "n_above_IT90": 8,
+        "n_above_IT98": 3,
+        "n_seasons": 21
+      },
+      {
+        "region": "Region 8",
+        "median_peak": 4.138,
+        "n_above_IT50": 7,
+        "n_above_IT90": 5,
+        "n_above_IT98": 1,
+        "n_seasons": 21
+      },
+      {
+        "region": "Region 9",
+        "median_peak": 5.008,
+        "n_above_IT50": 15,
+        "n_above_IT90": 7,
+        "n_above_IT98": 2,
+        "n_seasons": 21
+      },
+      {
+        "region": "Region 10",
+        "median_peak": 4.317,
+        "n_above_IT50": 10,
+        "n_above_IT90": 8,
+        "n_above_IT98": 3,
+        "n_seasons": 21
+      }
+    ]
+  },
+  "regional_season_peaks": [
+    {
+      "season": "2003-04",
+      "region": "Region 1",
+      "season_peak_max": 6.659
+    },
+    {
+      "season": "2003-04",
+      "region": "Region 10",
+      "season_peak_max": 8.828
+    },
+    {
+      "season": "2003-04",
+      "region": "Region 2",
+      "season_peak_max": 6.431
+    },
+    {
+      "season": "2003-04",
+      "region": "Region 3",
+      "season_peak_max": 7.242
+    },
+    {
+      "season": "2003-04",
+      "region": "Region 4",
+      "season_peak_max": 7.136
+    },
+    {
+      "season": "2003-04",
+      "region": "Region 5",
+      "season_peak_max": 9.848
+    },
+    {
+      "season": "2003-04",
+      "region": "Region 6",
+      "season_peak_max": 10.421
+    },
+    {
+      "season": "2003-04",
+      "region": "Region 7",
+      "season_peak_max": 11.449
+    },
+    {
+      "season": "2003-04",
+      "region": "Region 8",
+      "season_peak_max": 6.753
+    },
+    {
+      "season": "2003-04",
+      "region": "Region 9",
+      "season_peak_max": 9.11
+    },
+    {
+      "season": "2004-05",
+      "region": "Region 1",
+      "season_peak_max": 2.43
+    },
+    {
+      "season": "2004-05",
+      "region": "Region 10",
+      "season_peak_max": 4.658
+    },
+    {
+      "season": "2004-05",
+      "region": "Region 2",
+      "season_peak_max": 4.341
+    },
+    {
+      "season": "2004-05",
+      "region": "Region 3",
+      "season_peak_max": 9.176
+    },
+    {
+      "season": "2004-05",
+      "region": "Region 4",
+      "season_peak_max": 4.196
+    },
+    {
+      "season": "2004-05",
+      "region": "Region 5",
+      "season_peak_max": 6.095
+    },
+    {
+      "season": "2004-05",
+      "region": "Region 6",
+      "season_peak_max": 8.641
+    },
+    {
+      "season": "2004-05",
+      "region": "Region 7",
+      "season_peak_max": 4.889
+    },
+    {
+      "season": "2004-05",
+      "region": "Region 8",
+      "season_peak_max": 3.615
+    },
+    {
+      "season": "2004-05",
+      "region": "Region 9",
+      "season_peak_max": 4.997
+    },
+    {
+      "season": "2005-06",
+      "region": "Region 1",
+      "season_peak_max": 2.255
+    },
+    {
+      "season": "2005-06",
+      "region": "Region 10",
+      "season_peak_max": 3.225
+    },
+    {
+      "season": "2005-06",
+      "region": "Region 2",
+      "season_peak_max": 2.902
+    },
+    {
+      "season": "2005-06",
+      "region": "Region 3",
+      "season_peak_max": 6.252
+    },
+    {
+      "season": "2005-06",
+      "region": "Region 4",
+      "season_peak_max": 3.71
+    },
+    {
+      "season": "2005-06",
+      "region": "Region 5",
+      "season_peak_max": 3.443
+    },
+    {
+      "season": "2005-06",
+      "region": "Region 6",
+      "season_peak_max": 5.992
+    },
+    {
+      "season": "2005-06",
+      "region": "Region 7",
+      "season_peak_max": 2.59
+    },
+    {
+      "season": "2005-06",
+      "region": "Region 8",
+      "season_peak_max": 2.801
+    },
+    {
+      "season": "2005-06",
+      "region": "Region 9",
+      "season_peak_max": 7.417
+    },
+    {
+      "season": "2006-07",
+      "region": "Region 1",
+      "season_peak_max": 2.004
+    },
+    {
+      "season": "2006-07",
+      "region": "Region 10",
+      "season_peak_max": 7.022
+    },
+    {
+      "season": "2006-07",
+      "region": "Region 2",
+      "season_peak_max": 2.91
+    },
+    {
+      "season": "2006-07",
+      "region": "Region 3",
+      "season_peak_max": 3.698
+    },
+    {
+      "season": "2006-07",
+      "region": "Region 4",
+      "season_peak_max": 3.655
+    },
+    {
+      "season": "2006-07",
+      "region": "Region 5",
+      "season_peak_max": 3.355
+    },
+    {
+      "season": "2006-07",
+      "region": "Region 6",
+      "season_peak_max": 7.563
+    },
+    {
+      "season": "2006-07",
+      "region": "Region 7",
+      "season_peak_max": 2.834
+    },
+    {
+      "season": "2006-07",
+      "region": "Region 8",
+      "season_peak_max": 2.095
+    },
+    {
+      "season": "2006-07",
+      "region": "Region 9",
+      "season_peak_max": 4.239
+    },
+    {
+      "season": "2007-08",
+      "region": "Region 1",
+      "season_peak_max": 4.204
+    },
+    {
+      "season": "2007-08",
+      "region": "Region 10",
+      "season_peak_max": 8.37
+    },
+    {
+      "season": "2007-08",
+      "region": "Region 2",
+      "season_peak_max": 4.378
+    },
+    {
+      "season": "2007-08",
+      "region": "Region 3",
+      "season_peak_max": 5.017
+    },
+    {
+      "season": "2007-08",
+      "region": "Region 4",
+      "season_peak_max": 6.276
+    },
+    {
+      "season": "2007-08",
+      "region": "Region 5",
+      "season_peak_max": 5.517
+    },
+    {
+      "season": "2007-08",
+      "region": "Region 6",
+      "season_peak_max": 10.337
+    },
+    {
+      "season": "2007-08",
+      "region": "Region 7",
+      "season_peak_max": 6.686
+    },
+    {
+      "season": "2007-08",
+      "region": "Region 8",
+      "season_peak_max": 4.362
+    },
+    {
+      "season": "2007-08",
+      "region": "Region 9",
+      "season_peak_max": 6.447
+    },
+    {
+      "season": "2008-09",
+      "region": "Region 1",
+      "season_peak_max": 3.891
+    },
+    {
+      "season": "2008-09",
+      "region": "Region 10",
+      "season_peak_max": 6.866
+    },
+    {
+      "season": "2008-09",
+      "region": "Region 2",
+      "season_peak_max": 6.449
+    },
+    {
+      "season": "2008-09",
+      "region": "Region 3",
+      "season_peak_max": 5.207
+    },
+    {
+      "season": "2008-09",
+      "region": "Region 4",
+      "season_peak_max": 6.771
+    },
+    {
+      "season": "2008-09",
+      "region": "Region 5",
+      "season_peak_max": 2.589
+    },
+    {
+      "season": "2008-09",
+      "region": "Region 6",
+      "season_peak_max": 9.455
+    },
+    {
+      "season": "2008-09",
+      "region": "Region 7",
+      "season_peak_max": 5.122
+    },
+    {
+      "season": "2008-09",
+      "region": "Region 8",
+      "season_peak_max": 4.061
+    },
+    {
+      "season": "2008-09",
+      "region": "Region 9",
+      "season_peak_max": 5.309
+    },
+    {
+      "season": "2009-10",
+      "region": "Region 1",
+      "season_peak_max": 9.688
+    },
+    {
+      "season": "2009-10",
+      "region": "Region 10",
+      "season_peak_max": 9.225
+    },
+    {
+      "season": "2009-10",
+      "region": "Region 2",
+      "season_peak_max": 8.122
+    },
+    {
+      "season": "2009-10",
+      "region": "Region 3",
+      "season_peak_max": 10.533
+    },
+    {
+      "season": "2009-10",
+      "region": "Region 4",
+      "season_peak_max": 6.021
+    },
+    {
+      "season": "2009-10",
+      "region": "Region 5",
+      "season_peak_max": 9.068
+    },
+    {
+      "season": "2009-10",
+      "region": "Region 6",
+      "season_peak_max": 13.382
+    },
+    {
+      "season": "2009-10",
+      "region": "Region 7",
+      "season_peak_max": 11.313
+    },
+    {
+      "season": "2009-10",
+      "region": "Region 8",
+      "season_peak_max": 9.748
+    },
+    {
+      "season": "2009-10",
+      "region": "Region 9",
+      "season_peak_max": 7.223
+    },
+    {
+      "season": "2010-11",
+      "region": "Region 1",
+      "season_peak_max": 2.322
+    },
+    {
+      "season": "2010-11",
+      "region": "Region 10",
+      "season_peak_max": 3.911
+    },
+    {
+      "season": "2010-11",
+      "region": "Region 2",
+      "season_peak_max": 4.478
+    },
+    {
+      "season": "2010-11",
+      "region": "Region 3",
+      "season_peak_max": 4.416
+    },
+    {
+      "season": "2010-11",
+      "region": "Region 4",
+      "season_peak_max": 5.507
+    },
+    {
+      "season": "2010-11",
+      "region": "Region 5",
+      "season_peak_max": 3.78
+    },
+    {
+      "season": "2010-11",
+      "region": "Region 6",
+      "season_peak_max": 7.949
+    },
+    {
+      "season": "2010-11",
+      "region": "Region 7",
+      "season_peak_max": 4.67
+    },
+    {
+      "season": "2010-11",
+      "region": "Region 8",
+      "season_peak_max": 2.655
+    },
+    {
+      "season": "2010-11",
+      "region": "Region 9",
+      "season_peak_max": 4.722
+    },
+    {
+      "season": "2011-12",
+      "region": "Region 1",
+      "season_peak_max": 1.005
+    },
+    {
+      "season": "2011-12",
+      "region": "Region 10",
+      "season_peak_max": 2.189
+    },
+    {
+      "season": "2011-12",
+      "region": "Region 2",
+      "season_peak_max": 1.352
+    },
+    {
+      "season": "2011-12",
+      "region": "Region 3",
+      "season_peak_max": 2.197
+    },
+    {
+      "season": "2011-12",
+      "region": "Region 4",
+      "season_peak_max": 2.294
+    },
+    {
+      "season": "2011-12",
+      "region": "Region 5",
+      "season_peak_max": 2.396
+    },
+    {
+      "season": "2011-12",
+      "region": "Region 6",
+      "season_peak_max": 4.107
+    },
+    {
+      "season": "2011-12",
+      "region": "Region 7",
+      "season_peak_max": 3.443
+    },
+    {
+      "season": "2011-12",
+      "region": "Region 8",
+      "season_peak_max": 2.202
+    },
+    {
+      "season": "2011-12",
+      "region": "Region 9",
+      "season_peak_max": 3.688
+    },
+    {
+      "season": "2012-13",
+      "region": "Region 1",
+      "season_peak_max": 3.929
+    },
+    {
+      "season": "2012-13",
+      "region": "Region 10",
+      "season_peak_max": 3.693
+    },
+    {
+      "season": "2012-13",
+      "region": "Region 2",
+      "season_peak_max": 5.51
+    },
+    {
+      "season": "2012-13",
+      "region": "Region 3",
+      "season_peak_max": 7.131
+    },
+    {
+      "season": "2012-13",
+      "region": "Region 4",
+      "season_peak_max": 6.296
+    },
+    {
+      "season": "2012-13",
+      "region": "Region 5",
+      "season_peak_max": 5.712
+    },
+    {
+      "season": "2012-13",
+      "region": "Region 6",
+      "season_peak_max": 9.254
+    },
+    {
+      "season": "2012-13",
+      "region": "Region 7",
+      "season_peak_max": 6.72
+    },
+    {
+      "season": "2012-13",
+      "region": "Region 8",
+      "season_peak_max": 4.138
+    },
+    {
+      "season": "2012-13",
+      "region": "Region 9",
+      "season_peak_max": 5.579
+    },
+    {
+      "season": "2013-14",
+      "region": "Region 1",
+      "season_peak_max": 2.244
+    },
+    {
+      "season": "2013-14",
+      "region": "Region 10",
+      "season_peak_max": 3.992
+    },
+    {
+      "season": "2013-14",
+      "region": "Region 2",
+      "season_peak_max": 3.439
+    },
+    {
+      "season": "2013-14",
+      "region": "Region 3",
+      "season_peak_max": 3.593
+    },
+    {
+      "season": "2013-14",
+      "region": "Region 4",
+      "season_peak_max": 4.608
+    },
+    {
+      "season": "2013-14",
+      "region": "Region 5",
+      "season_peak_max": 3.597
+    },
+    {
+      "season": "2013-14",
+      "region": "Region 6",
+      "season_peak_max": 9.862
+    },
+    {
+      "season": "2013-14",
+      "region": "Region 7",
+      "season_peak_max": 4.481
+    },
+    {
+      "season": "2013-14",
+      "region": "Region 8",
+      "season_peak_max": 3.663
+    },
+    {
+      "season": "2013-14",
+      "region": "Region 9",
+      "season_peak_max": 4.642
+    },
+    {
+      "season": "2014-15",
+      "region": "Region 1",
+      "season_peak_max": 3.938
+    },
+    {
+      "season": "2014-15",
+      "region": "Region 10",
+      "season_peak_max": 3.642
+    },
+    {
+      "season": "2014-15",
+      "region": "Region 2",
+      "season_peak_max": 5.249
+    },
+    {
+      "season": "2014-15",
+      "region": "Region 3",
+      "season_peak_max": 7.275
+    },
+    {
+      "season": "2014-15",
+      "region": "Region 4",
+      "season_peak_max": 7.517
+    },
+    {
+      "season": "2014-15",
+      "region": "Region 5",
+      "season_peak_max": 6.618
+    },
+    {
+      "season": "2014-15",
+      "region": "Region 6",
+      "season_peak_max": 10.62
+    },
+    {
+      "season": "2014-15",
+      "region": "Region 7",
+      "season_peak_max": 6.379
+    },
+    {
+      "season": "2014-15",
+      "region": "Region 8",
+      "season_peak_max": 4.39
+    },
+    {
+      "season": "2014-15",
+      "region": "Region 9",
+      "season_peak_max": 5.008
+    },
+    {
+      "season": "2015-16",
+      "region": "Region 1",
+      "season_peak_max": 2.545
+    },
+    {
+      "season": "2015-16",
+      "region": "Region 10",
+      "season_peak_max": 2.443
+    },
+    {
+      "season": "2015-16",
+      "region": "Region 2",
+      "season_peak_max": 4.08
+    },
+    {
+      "season": "2015-16",
+      "region": "Region 3",
+      "season_peak_max": 3.983
+    },
+    {
+      "season": "2015-16",
+      "region": "Region 4",
+      "season_peak_max": 3.63
+    },
+    {
+      "season": "2015-16",
+      "region": "Region 5",
+      "season_peak_max": 3.412
+    },
+    {
+      "season": "2015-16",
+      "region": "Region 6",
+      "season_peak_max": 5.315
+    },
+    {
+      "season": "2015-16",
+      "region": "Region 7",
+      "season_peak_max": 2.504
+    },
+    {
+      "season": "2015-16",
+      "region": "Region 8",
+      "season_peak_max": 2.178
+    },
+    {
+      "season": "2015-16",
+      "region": "Region 9",
+      "season_peak_max": 4.374
+    },
+    {
+      "season": "2016-17",
+      "region": "Region 1",
+      "season_peak_max": 3.192
+    },
+    {
+      "season": "2016-17",
+      "region": "Region 10",
+      "season_peak_max": 3.833
+    },
+    {
+      "season": "2016-17",
+      "region": "Region 2",
+      "season_peak_max": 6.938
+    },
+    {
+      "season": "2016-17",
+      "region": "Region 3",
+      "season_peak_max": 5.2
+    },
+    {
+      "season": "2016-17",
+      "region": "Region 4",
+      "season_peak_max": 5.505
+    },
+    {
+      "season": "2016-17",
+      "region": "Region 5",
+      "season_peak_max": 4.318
+    },
+    {
+      "season": "2016-17",
+      "region": "Region 6",
+      "season_peak_max": 9.876
+    },
+    {
+      "season": "2016-17",
+      "region": "Region 7",
+      "season_peak_max": 6.359
+    },
+    {
+      "season": "2016-17",
+      "region": "Region 8",
+      "season_peak_max": 2.727
+    },
+    {
+      "season": "2016-17",
+      "region": "Region 9",
+      "season_peak_max": 3.305
+    },
+    {
+      "season": "2017-18",
+      "region": "Region 1",
+      "season_peak_max": 5.787
+    },
+    {
+      "season": "2017-18",
+      "region": "Region 10",
+      "season_peak_max": 4.959
+    },
+    {
+      "season": "2017-18",
+      "region": "Region 2",
+      "season_peak_max": 10.329
+    },
+    {
+      "season": "2017-18",
+      "region": "Region 3",
+      "season_peak_max": 7.511
+    },
+    {
+      "season": "2017-18",
+      "region": "Region 4",
+      "season_peak_max": 9.26
+    },
+    {
+      "season": "2017-18",
+      "region": "Region 5",
+      "season_peak_max": 5.808
+    },
+    {
+      "season": "2017-18",
+      "region": "Region 6",
+      "season_peak_max": 12.714
+    },
+    {
+      "season": "2017-18",
+      "region": "Region 7",
+      "season_peak_max": 8.83
+    },
+    {
+      "season": "2017-18",
+      "region": "Region 8",
+      "season_peak_max": 3.25
+    },
+    {
+      "season": "2017-18",
+      "region": "Region 9",
+      "season_peak_max": 6.899
+    },
+    {
+      "season": "2018-19",
+      "region": "Region 1",
+      "season_peak_max": 3.896
+    },
+    {
+      "season": "2018-19",
+      "region": "Region 10",
+      "season_peak_max": 4.317
+    },
+    {
+      "season": "2018-19",
+      "region": "Region 2",
+      "season_peak_max": 5.248
+    },
+    {
+      "season": "2018-19",
+      "region": "Region 3",
+      "season_peak_max": 4.64
+    },
+    {
+      "season": "2018-19",
+      "region": "Region 4",
+      "season_peak_max": 5.985
+    },
+    {
+      "season": "2018-19",
+      "region": "Region 5",
+      "season_peak_max": 3.566
+    },
+    {
+      "season": "2018-19",
+      "region": "Region 6",
+      "season_peak_max": 10.085
+    },
+    {
+      "season": "2018-19",
+      "region": "Region 7",
+      "season_peak_max": 5.705
+    },
+    {
+      "season": "2018-19",
+      "region": "Region 8",
+      "season_peak_max": 5.866
+    },
+    {
+      "season": "2018-19",
+      "region": "Region 9",
+      "season_peak_max": 3.675
+    },
+    {
+      "season": "2019-20",
+      "region": "Region 1",
+      "season_peak_max": 7.148
+    },
+    {
+      "season": "2019-20",
+      "region": "Region 10",
+      "season_peak_max": 7.206
+    },
+    {
+      "season": "2019-20",
+      "region": "Region 2",
+      "season_peak_max": 11.922
+    },
+    {
+      "season": "2019-20",
+      "region": "Region 3",
+      "season_peak_max": 6.81
+    },
+    {
+      "season": "2019-20",
+      "region": "Region 4",
+      "season_peak_max": 8.768
+    },
+    {
+      "season": "2019-20",
+      "region": "Region 5",
+      "season_peak_max": 5.529
+    },
+    {
+      "season": "2019-20",
+      "region": "Region 6",
+      "season_peak_max": 13.403
+    },
+    {
+      "season": "2019-20",
+      "region": "Region 7",
+      "season_peak_max": 7.253
+    },
+    {
+      "season": "2019-20",
+      "region": "Region 8",
+      "season_peak_max": 6.838
+    },
+    {
+      "season": "2019-20",
+      "region": "Region 9",
+      "season_peak_max": 4.745
+    },
+    {
+      "season": "2020-21",
+      "region": "Region 1",
+      "season_peak_max": 1.159
+    },
+    {
+      "season": "2020-21",
+      "region": "Region 10",
+      "season_peak_max": 1.563
+    },
+    {
+      "season": "2020-21",
+      "region": "Region 2",
+      "season_peak_max": 3.2
+    },
+    {
+      "season": "2020-21",
+      "region": "Region 3",
+      "season_peak_max": 2.171
+    },
+    {
+      "season": "2020-21",
+      "region": "Region 4",
+      "season_peak_max": 3.369
+    },
+    {
+      "season": "2020-21",
+      "region": "Region 5",
+      "season_peak_max": 1.501
+    },
+    {
+      "season": "2020-21",
+      "region": "Region 6",
+      "season_peak_max": 2.891
+    },
+    {
+      "season": "2020-21",
+      "region": "Region 7",
+      "season_peak_max": 2.338
+    },
+    {
+      "season": "2020-21",
+      "region": "Region 8",
+      "season_peak_max": 2.115
+    },
+    {
+      "season": "2020-21",
+      "region": "Region 9",
+      "season_peak_max": 2.549
+    },
+    {
+      "season": "2021-22",
+      "region": "Region 1",
+      "season_peak_max": 3.474
+    },
+    {
+      "season": "2021-22",
+      "region": "Region 10",
+      "season_peak_max": 3.163
+    },
+    {
+      "season": "2021-22",
+      "region": "Region 2",
+      "season_peak_max": 6.697
+    },
+    {
+      "season": "2021-22",
+      "region": "Region 3",
+      "season_peak_max": 5.051
+    },
+    {
+      "season": "2021-22",
+      "region": "Region 4",
+      "season_peak_max": 6.032
+    },
+    {
+      "season": "2021-22",
+      "region": "Region 5",
+      "season_peak_max": 3.96
+    },
+    {
+      "season": "2021-22",
+      "region": "Region 6",
+      "season_peak_max": 5.592
+    },
+    {
+      "season": "2021-22",
+      "region": "Region 7",
+      "season_peak_max": 4.267
+    },
+    {
+      "season": "2021-22",
+      "region": "Region 8",
+      "season_peak_max": 4.186
+    },
+    {
+      "season": "2021-22",
+      "region": "Region 9",
+      "season_peak_max": 4.122
+    },
+    {
+      "season": "2022-23",
+      "region": "Region 1",
+      "season_peak_max": 7.344
+    },
+    {
+      "season": "2022-23",
+      "region": "Region 10",
+      "season_peak_max": 9.633
+    },
+    {
+      "season": "2022-23",
+      "region": "Region 2",
+      "season_peak_max": 9.122
+    },
+    {
+      "season": "2022-23",
+      "region": "Region 3",
+      "season_peak_max": 6.331
+    },
+    {
+      "season": "2022-23",
+      "region": "Region 4",
+      "season_peak_max": 8.383
+    },
+    {
+      "season": "2022-23",
+      "region": "Region 5",
+      "season_peak_max": 6.231
+    },
+    {
+      "season": "2022-23",
+      "region": "Region 6",
+      "season_peak_max": 8.722
+    },
+    {
+      "season": "2022-23",
+      "region": "Region 7",
+      "season_peak_max": 6.763
+    },
+    {
+      "season": "2022-23",
+      "region": "Region 8",
+      "season_peak_max": 7.75
+    },
+    {
+      "season": "2022-23",
+      "region": "Region 9",
+      "season_peak_max": 7.88
+    },
+    {
+      "season": "2023-24",
+      "region": "Region 1",
+      "season_peak_max": 5.211
+    },
+    {
+      "season": "2023-24",
+      "region": "Region 10",
+      "season_peak_max": 3.728
+    },
+    {
+      "season": "2023-24",
+      "region": "Region 2",
+      "season_peak_max": 6.773
+    },
+    {
+      "season": "2023-24",
+      "region": "Region 3",
+      "season_peak_max": 5.642
+    },
+    {
+      "season": "2023-24",
+      "region": "Region 4",
+      "season_peak_max": 9.71
+    },
+    {
+      "season": "2023-24",
+      "region": "Region 5",
+      "season_peak_max": 4.639
+    },
+    {
+      "season": "2023-24",
+      "region": "Region 6",
+      "season_peak_max": 8.294
+    },
+    {
+      "season": "2023-24",
+      "region": "Region 7",
+      "season_peak_max": 4.372
+    },
+    {
+      "season": "2023-24",
+      "region": "Region 8",
+      "season_peak_max": 6.777
+    },
+    {
+      "season": "2023-24",
+      "region": "Region 9",
+      "season_peak_max": 7.294
+    },
+    {
+      "season": "2024-25",
+      "region": "Region 1",
+      "season_peak_max": 9.383
+    },
+    {
+      "season": "2024-25",
+      "region": "Region 10",
+      "season_peak_max": 8.426
+    },
+    {
+      "season": "2024-25",
+      "region": "Region 2",
+      "season_peak_max": 9.22
+    },
+    {
+      "season": "2024-25",
+      "region": "Region 3",
+      "season_peak_max": 7.143
+    },
+    {
+      "season": "2024-25",
+      "region": "Region 4",
+      "season_peak_max": 8.79
+    },
+    {
+      "season": "2024-25",
+      "region": "Region 5",
+      "season_peak_max": 8.117
+    },
+    {
+      "season": "2024-25",
+      "region": "Region 6",
+      "season_peak_max": 10.272
+    },
+    {
+      "season": "2024-25",
+      "region": "Region 7",
+      "season_peak_max": 7.075
+    },
+    {
+      "season": "2024-25",
+      "region": "Region 8",
+      "season_peak_max": 5.564
+    },
+    {
+      "season": "2024-25",
+      "region": "Region 9",
+      "season_peak_max": 8.647
+    }
+  ]
+}

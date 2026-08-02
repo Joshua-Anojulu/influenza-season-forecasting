@@ -8,8 +8,7 @@ Forecasting the timing and severity of US influenza season peaks from public CDC
 > yet pushed. The advisor confirmed the characterization-first framing, national-only scope, and
 > regression/curve models on 2026-07-08, and confirmed Option B (2003+ core, 2009+ enrichment), the
 > CDC-anchored severity tiers, and the regional-ILI-for-the-heatmap-only scope on 2026-08-02. The
-> decision week to headline remains the one open decision. D2, the regional severity heatmap, is not
-> yet built. Nothing here is a final claim.
+> decision week to headline remains the one open decision. Nothing here is a final claim.
 
 ## Overview
 
@@ -27,7 +26,7 @@ weeks yields an accuracy-versus-lead-time analysis. Validation is leave-one-seas
 ## Data sources
 
 All data is publicly available from the CDC. This project is not affiliated with the CDC. National
-scope only. Raw files live in `data/raw/` (gitignored).
+scope for every model; regional (HHS Regions) ILI is used only as an input to the D2 figure. Raw files live in `data/raw/` (gitignored).
 
 | Source | Contents | Role | Coverage |
 |--------|----------|------|----------|
@@ -83,7 +82,10 @@ is not used for subtype.
   among comparable seasons. No season in 22 reaches IT98, so the classifier is 3-class. The Random
   Forest classifier is a **negative result**: it shows no demonstrated advantage over thresholding
   the univariate regression, with paired bootstrap intervals including zero at W=12 and W=16. D2, the
-  regional severity heatmap, is **not yet built** and is blocked on a regional ILINet download.
+  regional severity heatmap, is a **continuous** map of regional season peak ILI with the national
+  thresholds shown only as colorbar reference ticks; regions are never assigned tiers, because CDC
+  publishes no regional thresholds and regional baselines differ sharply (Region 6's median season
+  peak of 9.455 sits above the national IT98, Region 1's 3.896 below the national IT50).
 - **Validation:** LOSO over the same season set throughout. Of 22 complete seasons (2003-04 to
   2024-25), **19 are modeled** after holding out 2009-10 and 2020-21 (pandemic) and 2008-09
   (pandemic-adjacent, the 2009 H1N1 emergence) as labeled special cases.
