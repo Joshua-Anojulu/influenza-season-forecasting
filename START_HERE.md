@@ -11,12 +11,13 @@ surveillance; the target is the timing and severity of each season's ILI peak.
 
 ## 2. Get the data (public CDC files)
 
-The raw files are not included. Download these six from the CDC and place them in `data/raw/`
+The raw files are not included. Download these seven from the CDC and place them in `data/raw/`
 with exactly these names (notebook 01 documents every file and its loading quirks):
 
 | File | Source |
 |------|--------|
-| `ILINet.csv` | CDC FluView Interactive (ILINet, national) |
+| `ILINet.csv` | CDC FluView Interactive (ILINet, **region type: National**) |
+| `ILINet_regional.csv` | CDC FluView Interactive (ILINet, **region type: HHS Regions**) |
 | `ICL_NREVSS_Combined_prior_to_2015_16.csv` | CDC FluView Interactive (NREVSS) |
 | `ICL_NREVSS_Public_Health_Labs.csv` | CDC FluView Interactive (NREVSS) |
 | `ICL_NREVSS_Clinical_Labs.csv` | CDC FluView Interactive (NREVSS) |
@@ -25,15 +26,19 @@ with exactly these names (notebook 01 documents every file and its loading quirk
 
 CDC FluView Interactive: https://gis.cdc.gov/grasp/fluview/fluportaldashboard.html
 
+The two ILINet files are the **same export at two different region settings**, so download it twice
+and rename. `ILINet_regional.csv` is needed only for D2 in notebook 08; notebook 08 guards on it and
+will skip D2 with a message rather than fail if it is absent. Everything else needs the national file.
+
 If your download has a different filename (the CDC exports use long default names), rename it to
-match the table. Notebook 01 checks that all six files are present and prints what is missing.
+match the table. Notebook 01 checks the core files are present and prints what is missing.
 
 ## 3. Run the notebooks in order
 
-Run **01 through 06 in order** from the project root, either way:
+Run **01 through 08 in order** from the project root, either way:
 
 - **Jupyter:** launch `jupyter notebook` (or JupyterLab) from the project root and run each notebook top to bottom.
-- **Headless:** `jupyter nbconvert --to notebook --execute notebooks/01_data_inventory.ipynb` (repeat for 02...06).
+- **Headless:** `jupyter nbconvert --to notebook --execute notebooks/01_data_inventory.ipynb` (repeat for 02...08).
 
 Run from the project root so the `data/raw/` paths resolve. The notebooks are committed without
 outputs and each one rebuilds the cleaned data from notebook 02's logic, so they are deterministic
@@ -48,6 +53,11 @@ and can be run independently once the data is in place.
 4. `04_baselines` — naive floors (climatology, persistence, within-season running max) that every model must beat.
 5. `05_forecasting` — ARIMA and Prophet under a strict leakage firewall; interval calibration.
 6. `06_regression_and_curve` — a univariate severity regression, an explanatory ridge, and a Gaussian curve fit.
+7. `07_features_and_hypothesis` — lag, rolling and hospitalization features; tests H1 (recent four-week
+   ILI versus cumulative ILI) with paired bootstrap intervals; builds D3 from grouped block ablations.
+8. `08_severity_tiers` — season severity tiers anchored to CDC's published ILI intensity thresholds,
+   validated against CDC's own published season classifications; a 3-class severity classifier scored
+   against four baselines; and D2, the regional severity heatmap.
 
 Outputs land in `results/` (metric tables, markdown + JSON) and `figures/` (PNG). If those folders
 are included here, use them as an answer key to check your run against.
@@ -56,6 +66,9 @@ are included here, use them as an answer key to check your run against.
 
 - **Leakage firewall.** Every model feature uses only data through the decision week W. Nothing after
   W may touch a season's forecast. Cumulative-season features are the classic trap; check each one.
+- **The firewall governs features, not the target.** In 05, 06 and 08 the thing being predicted is the
+  realized season peak, which by definition is only known after the season ends. That is fine and is
+  not leakage. What must never happen is a *feature* whose window reaches past W.
 - **Validation is leave-one-season-out** over 19 non-pandemic seasons (2008-09, 2009-10, 2020-21 are held out).
 - **Lead-time matching.** A model at decision week W is compared only to the baseline at the same W.
 - **Characterization first.** Honest negative results (a model failing to beat the floor) are valid
